@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html;charset=UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+ author:liuyong
+ description:业务单位列表
+ uri:{domainContextPath}/bizuser/
+ -->
+<%@ include file="/WEB-INF/common/taglibs.jsp" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<%@ include file="/WEB-INF/common/meta.jsp" %>
+<title>列出所有业务单位用于选择业务单位到topo</title>
+<link href="${ctx}/css/portal.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/css/master.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${ctx}/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="${ctx}/js/bizservice/ajaxcommon.js"></script>
+<script>
+ 
+</script>
+</head>
+<body>
+	<div class="set-panel-content-white">
+		<div class="sub-panel-open">
+		 <div class="sub-panel-top">
+			<span class="r-ico r-ico-close-off"></span>
+			<span class="r-ico r-ico-add"></span>
+			<span class="r-ico r-ico-edit-off"></span>
+		 </div>
+		 <div class ="img-show">
+			<ul>
+			<s:iterator value="model.users" status="status">
+				<li>
+					<img src="${ctx}/images/bizservice-default/default-bizuser-icon.png"/>
+					<span>
+						<s:property value="name"/>
+						<input type="hidden" name="uri" value="<s:property value="uri"/>" />
+						<input type="hidden" name="bizId" value="<s:property value="id"/>" />
+					</span>
+				</li>
+			</s:iterator>
+			</ul>
+		 </div>    
+	   </div> 
+	</div>
+</body>
+</html>

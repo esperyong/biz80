@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.objectFactory" value="spring" />
+    <include file="com/mocha/bsm/bizsm/web/action/bizsm-web-actions.xml" />
+    <include file="com/mocha/bsm/bizsm/web/action/rest/rest_webservices.xml" />	
+    <include file="com/mocha/bsm/bizsm/web/action/rpc/rpc_webservices.xml" />	
+    <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
+ 	<constant name="struts.convention.exclude.packages" value="org.apache.struts.*,org.apache.struts2.*,org.springframework.web.struts.*,org.springframework.web.struts2.*,org.hibernate.*,com.mocha.bsm.bizsm.*,junit.*"/>
+ </struts>

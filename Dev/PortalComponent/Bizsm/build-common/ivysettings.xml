@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivysettings>
+	<properties file="build.properties" />
+	<properties file="${build.common.dir}/local.properties" />
+	<property name="nexus-url" value="http://${nexus-host}:8080/nexus"/>
+
+	<settings defaultResolver="${resolver}" defaultConflictManager="latest-revision" />
+	
+	<credentials host="${nexus-host}" realm="Sonatype Nexus Repository Manager" username="${username}" passwd="${passwd}"/>
+	
+	<caches resolutionCacheDir="${ivy.cache.dir}/resolution" repositoryCacheDir="${ivy.cache.dir}/repository"
+			ivyPattern="[organisation]/[module]/ivys/ivy-[revision].xml"
+			artifactPattern="[organisation]/[module]/[type]s/[artifact]-[revision].[ext]"
+			useOrigin="true" checkUpToDate="false"/>
+			
+	<resolvers>	
+		<!-- Integration repositories -->
+		<chain name="publicChain">
+			<ibiblio name="public" m2compatible="true" root="${nexus-url}/content/groups/public"/>
+			<ibiblio name="public-snapshots" m2compatible="true" root="${nexus-url}/content/groups/public-snapshots"/>			
+		</chain>
+		
+		<ibiblio name="release"  m2compatible="true" root="${nexus-url}/content/repositories/releases"/>
+		<ibiblio name="snapshot" m2compatible="true" root="${nexus-url}/content/repositories/snapshots"/>
+		
+		<chain name="localAndExternal">
+			<filesystem name="local" checkmodified="true">
+				<ivy
+					pattern="${repository.dir}/[organisation]/[module]/ivys/ivy-[revision].xml" />
+				<artifact
+					pattern="${repository.dir}/[organisation]/[module]/[type]s/[artifact]-[revision].[ext]" />
+			</filesystem>
+			<ibiblio name="libraries" m2compatible="true" usepoms="false" />
+		</chain>
+	</resolvers>
+</ivysettings>

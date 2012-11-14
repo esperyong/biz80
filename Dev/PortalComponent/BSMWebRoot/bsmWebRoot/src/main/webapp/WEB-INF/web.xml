@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>mocha-bsm-portal</display-name>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:applicationContext.xml
+		</param-value>
+	</context-param>
+	    
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    
+    <!-- 定义SiteMesh的核心过滤器 -->
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+	</filter>
+	
+	<!--  -->
+	<filter>
+		<filter-name>resourceFilter</filter-name>
+		<filter-class>com.mocha.bsm.system.ImageFilter</filter-class>
+	</filter>
+    
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>*.action</url-pattern>
+    </filter-mapping>
+    
+   <!--SiteMesh核心过滤器。 -->
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>resourceFilter</filter-name>
+		<url-pattern>/images/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>resourceFilter</filter-name>
+		<url-pattern>/css/*</url-pattern>
+	</filter-mapping>	
+	<filter-mapping>
+		<filter-name>resourceFilter</filter-name>
+		<url-pattern>/js/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>resourceFilter</filter-name>
+		<url-pattern>/flash/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 首页通讯servlet -->
+	<servlet>
+		<servlet-name>ViewSetServlet</servlet-name>
+		<servlet-class>
+			com.mocha.bsm.homepage.servlet.ViewSetServlet
+		</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ViewSetServlet</servlet-name>
+		<url-pattern>/homepage/ViewSetServlet</url-pattern>
+	</servlet-mapping>
+    
+  <!-- 客户端软件许可检查资源数量servlet -->
+  <servlet>
+    <servlet-name>ClientToolsServlet</servlet-name>
+    <servlet-class>
+      com.mocha.bsm.clienttools.servlet.ClientToolsServlet
+    </servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ClientToolsServlet</servlet-name>
+    <url-pattern>/monitor/ClientToolsServlet</url-pattern>
+  </servlet-mapping>
+    
+    <!-- 机房初始化servlet -->
+	<servlet>
+		<servlet-name>RoomInitServlet</servlet-name>
+		<servlet-class>com.mocha.bsm.room.web.servlet.RoomInitServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	 <!-- 机房3D&Flex交互servlet -->
+	<servlet>
+		<servlet-name>RoomUnifyServlet</servlet-name>
+		<servlet-class>com.mocha.bsm.room.web.servlet.RoomUnifyServlet
+		</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RoomUnifyServlet</servlet-name>
+		<url-pattern>/room/RoomUnifyServlet</url-pattern>
+	</servlet-mapping>
+    
+    <!--servlet>
+		<servlet-name>servletcontroller</servlet-name>
+		<servlet-class>
+			com.mdcl.mocha.bpm.portal.container.servlet.ServletController
+		</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet-->
+    <!-- servlet>
+    	<display-name>db4oServerStartServlet</display-name>
+    	<servlet-name>db4oServerStartServlet</servlet-name>
+    	<servlet-class>com.mocha.bsm.bizsm.web.servlet.BizsmDb4oServerStartServlet</servlet-class>
+    	<load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+		<servlet-name>servletcontroller</servlet-name>
+		<url-pattern>/myportal/*</url-pattern>
+	</servlet-mapping-->
+	
+	<!-- Http Flex Session attribute and binding listener support -->
+  <listener>
+      <listener-class>flex.messaging.HttpFlexSession</listener-class>
+  </listener>
+  
+  <!-- MessageBroker Servlet -->
+  <servlet>
+      <servlet-name>MessageBrokerServlet</servlet-name>
+      <display-name>MessageBrokerServlet</display-name>
+      <servlet-class>flex.messaging.MessageBrokerServlet</servlet-class>
+      <init-param>
+          <param-name>services.configuration.file</param-name>
+          <param-value>/WEB-INF/flex/services-config.xml</param-value>
+      </init-param>
+      <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+      <servlet-name>MessageBrokerServlet</servlet-name>
+      <url-pattern>/messagebroker/*</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Mocha Alert -->
+  <servlet>
+      <servlet-name>MochaAlertServlet</servlet-name>
+      <servlet-class>
+          com.mocha.bsm.notification.business.alert.MochaAlertServlet
+      </servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>MochaAlertServlet</servlet-name>
+      <url-pattern>/MochaAlertServlet</url-pattern>
+  </servlet-mapping>
+	
+    <!-- Mocha ITOM Integration-->
+	<servlet>
+		<servlet-name>ItpmServlet</servlet-name>
+		<servlet-class>com.mocha.itom.ITPMServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ItpmServlet</servlet-name>
+		<url-pattern>/servlet/ItpmServlet</url-pattern>
+	</servlet-mapping>	
+	
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/WEB-INF/common/500.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>503</error-code>
+		<location>/WEB-INF/common/503.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/common/500.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/common/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/WEB-INF/common/403.jsp</location>
+	</error-page>
+	
+</web-app>

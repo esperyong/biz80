@@ -1,0 +1,56 @@
+/**
+ *	该js定义了在业务服务管理中
+ *  js框架对flash调用的所有接口
+ */
+
+var flashContenObj;
+
+/**
+ *	
+ */
+function initFlashContentObj(flashId){
+	flashContenObj = document.getElementById(flashId);
+}
+
+/**
+ *	
+ */
+function unChoose(){
+	flashContenObj.callFlash("unChoose");
+}
+
+/**
+ *	
+ */
+function choose(type,uri){
+	flashContenObj.callFlash("choose",type,uri);
+}
+
+/**
+ *	
+ */
+function editComplete(type,uri){
+	flashContenObj.callFlash("editComplete",type,uri);
+}
+
+/**
+ *	
+ */
+function deleteComplete(type,uri){
+	flashContenObj.callFlash("deleteComplete",type,uri);
+}
+
+/**
+ *	
+ */
+function saveTopo(){
+	flashContenObj.callFlash("saveTopo");
+}
+
+/**
+ *	
+ */
+function chooseTopo(uri){
+	flashContenObj.callFlash("chooseTopo",uri);
+}
+

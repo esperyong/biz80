@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.2</jspversion>
+	<description>Taglib for mocha</description>
+	<tlib-version>1.0</tlib-version>
+
+	<short-name>mochatag</short-name>
+	<uri>/mochatag</uri>
+	<description>for mocha</description>
+
+	<!--   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$   -->
+
+
+	<tag>
+		<name>inforHead</name>
+		<tag-class>com.mocha.bsm.itom.taglib.InforHead</tag-class>
+		<body-content>empty</body-content>
+		<description>边框头标签</description>
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>width</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>宽度，默认：675，可以使用%方式</description>
+		</attribute>
+		<attribute>
+			<name>alt</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>悬停提示</description>
+		</attribute>
+		<attribute>
+			<name>heigh</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>高度</description>
+		</attribute>
+		<attribute>
+			<name>imgurl</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>inforFoot</name>
+		<tag-class>com.mocha.bsm.itom.taglib.InforFoot</tag-class>
+		<body-content>empty</body-content>
+		<description>边框底标签</description>
+		<attribute>
+			<name>imgurl</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>tableHead</name>
+		<tag-class>com.mocha.bsm.itom.taglib.TableHead</tag-class>
+		<body-content>empty</body-content>
+		<description>对话框头标签</description>
+		<attribute>
+			<name>title</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>width</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>宽度，默认：600</description>
+		</attribute>
+
+		<attribute>
+			<name>alt</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>关闭按钮提示信息</description>
+		</attribute>
+
+		<attribute>
+			<name>imgurl</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>tableFoot</name>
+		<tag-class>com.mocha.bsm.itom.taglib.TableFoot</tag-class>
+		<body-content>empty</body-content>
+		<description>对话框底标签</description>
+		<attribute>
+			<name>width</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>宽度，默认：600，</description>
+		</attribute>
+		<attribute>
+			<name>imgurl</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>inforTabs</name>
+		<tag-class>com.mocha.bsm.itom.taglib.InforTabs</tag-class>
+		<body-content>empty</body-content>
+		<description>Tabs标签</description>
+		<attribute>
+			<name>dataList</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.util.List</type>
+			<description>
+				List中的每个元素为一个Map Map中各状态设置方法 key：name value：显示名称 key：id
+				value：id key：link value：链接地址 标签按List中的顺序显示
+			</description>
+		</attribute>
+		<attribute>
+			<name>defaultid</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>默认点击的id编号，默认：第一个</description>
+		</attribute>
+		<attribute>
+			<name>width</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>宽度，默认：675，可以使用%方式</description>
+		</attribute>
+		<attribute>
+			<name>divheigh</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>进度条DIV层高度，默认：800px，可以使用%方式</description>
+		</attribute>
+		<attribute>
+			<name>iframename</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>iframe名称，默认：tabsiframe</description>
+		</attribute>
+		<attribute>
+			<name>iframescroll</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>ifrmae滚动条样式:no,yes,auto，默认：no</description>
+		</attribute>
+		<attribute>
+			<name>iframehight</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>ifrmae高度，默认：100</description>
+		</attribute>
+		<attribute>
+			<name>guageflag</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>boolean</type>
+			<description>是否显示进度条，true：显示，false：不显示。默认：true</description>
+		</attribute>
+		<attribute>
+			<name>changpagejs</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>
+				内页调用结束后需要调用的js方法。
+				此方法在标签中的giveDisplay()方法结束后调用，内页可以直接调用giveDisplay()来达到效果
+			</description>
+		</attribute>
+		<attribute>
+			<name>imgurl</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>
+			<description>图片的存放目录</description>
+		</attribute>
+	</tag>
+</taglib>

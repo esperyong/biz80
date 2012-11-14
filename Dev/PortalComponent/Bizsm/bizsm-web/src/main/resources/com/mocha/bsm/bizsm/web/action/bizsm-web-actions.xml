@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="bizsm.web.action" namespace="/bizsm/bizservice/ui" extends="struts-default">
+    	
+    	<!-- url: {domainContextPath}/bizsm/bizservice/ui/addnewbizservice -->
+    	<action name="addnewbizservice">
+    		<result name="success">/WEB-INF/content/bizsm/bizdefine/addNewBizsmDefine.jsp</result>
+    	</action>
+    	
+    	<!-- url: {domainContextPath}/bizsm/bizservice/ui/bizservicemanager!getGeneralInfo?serviceId={xxx} -->
+		<action name="bizservicemanager" class="bizDefineAction">
+			<result name="success">/WEB-INF/content/bizsm/bizdefine/generalInfo.jsp</result>
+		</action>
+		
+		<!-- url: {domainContextPath}/bizsm/bizservice/ui/bizdefine-main -->	
+    	<action name="bizdefine-main">
+    		<result name="success">/WEB-INF/content/bizsm/bizdefine/main.jsp</result>
+    	</action>
+    	<!-- url: {domainContextPath}/bizsm/bizservice/ui/bizdefine-bizlist -->	
+    	<action name="bizdefine-bizlist">
+    		<result name="success">/WEB-INF/content/bizsm/bizdefine/generalInfoAccordion.jsp</result>
+    	</action>
+    	<!-- url: {domainContextPath}/bizsm/bizservice/ui/bizdefine-biztreeview -->	
+    	<action name="bizdefine-biztreeview">
+    		<result name="success">/WEB-INF/content/bizsm/bizdefine/bizTree.jsp</result>
+    	</action>
+    	
+    	<!-- url: {domainContextPath}/bizsm/bizservice/ui/create-bizuser -->	
+    	<action name="create-bizuser">
+    		<result name="success">/WEB-INF/content/bizsm/bizdefine/addBizUser.jsp</result>
+    	</action>
+    	<!-- url: {domainContextPath}/bizsm/bizservice/ui/modify-bizuser -->	
+    	<action name="modify-bizuser">
+    		<result name="success">/WEB-INF/content/bizsm/bizdefine/modifyBizUser.jsp</result>
+    	</action>
+    	
+    	<!-- url: {domainContextPath}/bizsm/bizservice/ui/slider-case -->	
+    	<action name="slider-case">
+    		<result name="success">/WEB-INF/content/bizsm/slidercase.jsp</result>
+    	</action>
+    	
+    	<!-- url: {domainContextPath}/bizsm/bizservice/ui/accordion-case -->	
+    	<action name="accordion-case">
+    		<result name="success">/WEB-INF/content/bizsm/accordioncase.jsp</result>
+    	</action>
+    	
+	<!-- url: {domainContextPath}/bizsm/bizservice/ui/imageupload -->	
+    	<action name="imageupload">
+    		<result name="success">/WEB-INF/content/bizsm/bizdefine/upload.jsp</result>
+    	</action>
+    	
+    	<!-- url: {domainContextPath}/bizsm/bizservice/ui/bizstatusmanager!getCustomRule -->
+    	<!-- url: {domainContextPath}/bizsm/bizservice/ui/bizstatusmanager!getDefaultRule -->
+		<action name="bizstatusmanager" class="bizStatusDefineAction">
+			<result name="custom">/WEB-INF/content/bizsm/bizstatus/customRule.jsp</result>
+			<result name="default">/WEB-INF/content/bizsm/bizstatus/defaultRule.jsp</result>
+			<result name="success">/WEB-INF/content/bizsm/bizstatus/statusDefinitions.jsp</result>
+		</action>
+		
+		<!-- url: {domainContextPath}/bizsm/bizservice/ui/bizmanagement-main -->	
+    	<action name="bizmanagement-main">
+    		<result name="success">/WEB-INF/content/bizsm/bizmanagement/main.jsp</result>
+    	</action>
+    	<!-- url: {domainContextPath}/bizsm/bizservice/ui/bizmanagement-navigate -->	
+    	<action name="bizmanagement-navigate">
+    		<result name="success">/WEB-INF/content/bizsm/bizmanagement/navigate.jsp</result>
+    	</action>
+    	<!-- url: {domainContextPath}/bizsm/bizservice/ui/bizmanagement-show -->	
+    	<action name="bizmanagement-show">
+    		<result name="success">/WEB-INF/content/bizsm/bizmanagement/bizmanagement.jsp</result>
+    	</action>
+		
+		<!-- url: {domainContextPath}/bizsm/bizservice/ui/bizservice-monitor -->	
+    	<action name="bizservice-monitor">
+    		<result name="success">/WEB-INF/content/bizsm/bizmanagement/bizservicemonitor.jsp</result>
+    	</action>
+		
+     </package>
+</struts>

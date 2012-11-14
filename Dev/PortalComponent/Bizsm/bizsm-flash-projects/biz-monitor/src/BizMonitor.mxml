@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+TODO:
+@author chendg
+@version 1.0
+@created 2010-11-4  上午11:51:10
+-->
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:radar="com.mocha.biz.common.ui.radar.*" 
+			   xmlns:ui="com.mocha.biz.monitor.ui.*" backgroundColor="0x0000000">
+	<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		@namespace mx "library://ns.adobe.com/flex/mx";
+		/* @namespace radar "com.mocha.biz.common.ui.radar.*";
+		radar|RadarList{
+		panImageURL: Embed(source="pic/雷达01.PNG");	
+		panImageSkinURL: "./pic/雷达01.PNG";
+		} */
+	</fx:Style>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<mx:Image source="./assets/images/all-bg.jpg" left="0" top="0" right="0" bottom="0"/>
+	<ui:MonitorIndex left="4" top="2" bottom="2" right="4"/>
+</s:Application>

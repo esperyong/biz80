@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- ========================= GENERAL DEFINITIONS ========================= -->
+	
+	<bean id="contextRoot" class="com.mocha.bsm.bizsm.db4otemplate.database.ContextRoot">
+	</bean>
+	
+	<bean id="db4oEmbeddedServer" class="com.mocha.bsm.bizsm.db4otemplate.database.Db4oEmbeddedServer" destroy-method="shutdown">
+		<constructor-arg><ref bean="db4oConfigLoader"/></constructor-arg>
+		<property name="contextRoot" ref="contextRoot"/>
+	</bean>
+	
+	<bean id="singleConnDatasource" class="com.mocha.bsm.bizsm.db4otemplate.datasource.SingleConnectionDataSource">
+		<property name="dataBase" ref="db4oEmbeddedServer"/>
+	</bean>	
+	
+	<bean id="multiConnDatasource" class="com.mocha.bsm.bizsm.db4otemplate.datasource.MultiConnectionDataSource">
+		<property name="dataBase" ref="db4oEmbeddedServer"/>
+	</bean>
+	
+	<bean id="db4oTemplateMultiConn" class="com.mocha.bsm.bizsm.db4otemplate.core.Db4oTemplate">
+		<property name="datasource" ref="multiConnDatasource"/>
+	</bean>		
+	
+	<bean id="db4oTemplateSingleConn" class="com.mocha.bsm.bizsm.db4otemplate.core.Db4oTemplate">
+		<property name="datasource" ref="singleConnDatasource"/>
+	</bean>
+
+	<bean id="db4oConfigLoader" class="com.mocha.bsm.bizsm.db4otemplate.database.Db4oConfigurationLoader">
+		<property name="resources" value="classpath*:conf/db/db4oj/dbconfig/*.xml"/>
+	</bean>
+	
+</beans>

@@ -1,0 +1,31 @@
+package cn.com.mochasoft.bsm.location.commands
+{
+	import cn.com.mochasoft.bsm.location.component.LocationNode;
+	import cn.com.mochasoft.bsm.location.events.NodeActionEvent;
+	
+	import com.adobe.cairngorm.commands.ICommand;
+	import com.adobe.cairngorm.control.CairngormEvent;
+	import com.mocha.peony.core.component.Property;
+	
+	public class CreatNodeCommand implements ICommand
+	{
+		public function CreatNodeCommand()
+		{
+		}
+		
+		public function execute(event:CairngormEvent):void
+		{
+			LocationNode;
+			if(NodeActionEvent(event).selectedStencil=="polyline"){
+				Location._MainEdit.useStencil(NodeActionEvent(event).selectedStencil, NodeActionEvent(event).propertyVO);
+			}else if(NodeActionEvent(event).selectedStencil=="creator"){
+				Location._MainEdit.useStencil("creator",{
+					'componentTypeName':'cn.com.mochasoft.bsm.location.component.LocationNode',
+					'componentDefaultValues':[new Property('vo',NodeActionEvent(event).propertyVO)]
+				});
+			}
+			
+			
+		}
+	}
+}

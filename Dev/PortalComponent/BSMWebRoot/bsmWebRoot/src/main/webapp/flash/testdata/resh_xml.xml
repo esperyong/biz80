@@ -1,0 +1,17 @@
+﻿<room id="demo_room01" status="1" msg="ups01电压超标;sensor-temprature温度超标">
+	<resource id="Box06" name="Box06" status="1" msg="电压超标 当前值280V"/>
+	<resource id="Box07" name="Box07" status="1" msg=""/>
+	<resource id="Box08" name="Box08" status="0" msg=""/>
+	
+	<resource id="Rectangle9" name="sensor-temprature" status="1" msg="湿度50% "/>
+	<resource id="Rectangl10" name="sensor-temprature" status="1" msg="温度35 "/>
+
+  <resource id="Rectangl13" name="sensor-temprature" status="1" msg="温度35 "/>
+
+  <resource id="Rectangl14" name="sensor-temprature" status="1" msg="湿度50% "/>
+  <resource id="Rectangl16" name="sensor-temprature" status="1" msg="温度35 "/>
+
+  <resource id="Rectangl18" name="sensor-temprature" status="1" msg="50 "/>
+
+   
+</room>

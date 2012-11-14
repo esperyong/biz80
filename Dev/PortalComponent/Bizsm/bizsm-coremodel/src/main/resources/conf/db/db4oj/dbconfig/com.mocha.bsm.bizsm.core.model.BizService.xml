@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<db4o-configuration>
+	<common-config>
+			<object-classes>
+				<object-class name="com.mocha.bsm.bizsm.core.model.BizService">
+					<fields>
+						<field name="createDate">
+							<cascadeOnUpdate>true</cascadeOnUpdate>
+							<cascadeOnDelete>true</cascadeOnDelete>
+						</field>
+						<field name="lastUpdateDate">
+							<cascadeOnUpdate>true</cascadeOnUpdate>
+							<cascadeOnDelete>true</cascadeOnDelete>
+						</field>
+						<field name="childBizServices">
+							<cascadeOnUpdate>true</cascadeOnUpdate>
+						</field>
+						<field name="monitableResources">
+							<cascadeOnUpdate>true</cascadeOnUpdate>
+							<cascadeOnDelete>true</cascadeOnDelete>
+						</field>
+						<field name="bizUsers">
+							<cascadeOnUpdate>true</cascadeOnUpdate>
+						</field>																											
+					</fields>
+				</object-class>	
+			</object-classes>
+	</common-config>
+</db4o-configuration>

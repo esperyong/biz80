@@ -1,0 +1,99 @@
+.word {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+	line-height: 22px;
+
+}
+A:link {color:#000000;font-size:12px;text-decoration: none}
+A:visited {color:#000000;font-size:12px;text-decoration: none}
+A:active {color:#000000;font-size:12px;text-decoration: none}
+A:hover {color:#437BC3;font-size:12px;text-decoration: none}
+
+.word-jiacu {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 16px;
+
+}
+
+A.word-jiacu:link {font-family: "Arial", "Helvetica", "sans-serif";color:#000000;font-size:12px;text-decoration: none;font-weight: bold;}
+A.word-jiacu:visited {color:#000000;font-size:12px;text-decoration: none;font-weight: bold;}
+A.word-jiacu:active {color:#000000;font-size:12px;text-decoration: none;font-weight: bold;}
+A.word-jiacu:hover {color:#437BC3;font-size:12px;text-decoration: none;font-weight: bold;}
+.td-underline {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #97B1C8;
+	line-height: 20px;
+
+
+}
+.td {
+	padding-top: 6px;
+	padding-bottom: 2px;
+}
+.td-underline1 {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #9E9E9E;
+	line-height: 20px;
+
+
+}
+.word2 {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+	line-height: 22px;
+
+}
+.word-hui{
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: #464646;
+	text-decoration: none;
+	line-height: 22px;
+
+}
+.word-blue{
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: #4C6690;
+	text-decoration: none;
+
+}
+.word-menu-blue {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: #4C6690;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 16px;
+
+}
+.title-detail-blue {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 9pt;
+	COLOR: #0066CC;
+	text-decoration: none;
+}
+
+A.word-menu-blue:link {font-family: "Arial", "Helvetica", "sans-serif";color:#4C6690;font-size:12px;text-decoration: none;font-weight: bold;}
+A.word-menu-blue:visited {color:#4C6690;font-size:12px;text-decoration: none;font-weight: bold;}
+A.word-menu-blue:active {color:#4C6690;font-size:12px;text-decoration: none;font-weight: bold;}
+A.word-menu-blue:hover {color:#437BC3;font-size:12px;text-decoration: none;font-weight: bold;}
+.boder-all-gray{ border:1px solid #cccccc;}

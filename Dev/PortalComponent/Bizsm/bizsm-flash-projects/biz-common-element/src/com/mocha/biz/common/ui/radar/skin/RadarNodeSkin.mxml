@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+TODO:s:Skin
+@author chendg
+@version 1.0
+@created 2010-11-1  下午04:55:14
+-->
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:mx="library://ns.adobe.com/flex/mx">
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("com.mocha.biz.common.ui.radar.RadarNode")]
+	</fx:Metadata>
+	<fx:Script>
+		<![CDATA[
+		]]>
+	</fx:Script>
+	
+	<!-- states -->
+	<s:states>
+		<s:State name="red" stateGroups="redGourp"/>
+		<s:State name="yellow" stateGroups="yellowGourp"/>
+		<s:State name="green" stateGroups="greenGourp"/>
+		<s:State name="redOver" stateGroups="redGourp"/>
+		<s:State name="yellowOver" stateGroups="yellowGourp"/>
+		<s:State name="greenOver" stateGroups="greenGourp"/>
+	</s:states>
+	
+	<s:Rect  top="0" left="0" bottom="0" right="0" visible="false">
+		<s:fill>
+			<s:SolidColor color="0xcccccc"/>
+		</s:fill>
+	</s:Rect>
+	<s:VGroup left="0" top="0" right="0" bottom="0" gap="2" verticalAlign="middle" horizontalAlign="center">
+		<!--<mx:Image id="nodeImg" source="{hostComponent.nodeImgSource}"/>-->
+		<s:Group id="graphContent" width="16" top="0" left="0" bottom="0" right="0" height="16">
+			<s:Ellipse width="16" top="0" left="0" bottom="0" right="0" height="16" excludeFrom="yellow,red,green">
+				<s:fill>
+					<s:SolidColor color="0xffffff"/>
+				</s:fill>
+			</s:Ellipse>
+			<s:Ellipse width="8" top="4" left="4" bottom="4" right="4" height="8">
+				<s:fill>
+					<s:SolidColor color.greenGourp="0x00ff00" color.redGourp="0xff0000" color.yellowGourp="0xffff00"/>
+				</s:fill>
+			</s:Ellipse>
+		</s:Group>
+		
+		<s:Label id="nodeText"  textAlign="center" width="50" text="业务服务dd"
+				 verticalAlign="middle" showTruncationTip="true"
+				 maxDisplayedLines="1"  color="0xffffff"
+				 horizontalCenter="0"
+				 left="0" right="0" bottom="3"/>
+	</s:VGroup>
+</s:Skin>

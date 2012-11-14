@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>folderid:[bizsm-resource],imageId:[J2EEAppServer]</comment>
+<entry key="ContentType">application/x-shockwave-flash</entry>
+<entry key="imageName">J2EEAppServer</entry>
+<entry key="imageFileName">J2EEAppServer.swf</entry>
+</properties>

@@ -1,0 +1,5 @@
+ <BizUser>
+ 	<uri>./testAssets/bizuser.xml</uri>
+	<name>北京电视台</name>
+	<id>1</id>
+  </BizUser>

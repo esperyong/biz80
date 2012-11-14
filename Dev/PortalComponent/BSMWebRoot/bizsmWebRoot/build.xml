@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="war" name="bizsmweb" xmlns:ivy="antlib:org.apache.ivy.ant">
+	
+	<property file="build.properties"/>
+	
+	<import file="${build.common.dir}/common-war.xml"/>
+	
+	<target name="copy_for_jar"  description="--> copy config before JAR">
+		<!--copy file="./ivy.xml" todir="${classes.dir}"/-->
+	</target>
+	
+	<target name="clear_ivy_cache">
+		<delete dir="${ivy.cache.dir}" failonerror="false" />
+	</target>
+	
+	<!-- deploy bizsm's flash -->
+    <target name="resolvebizsm" depends="resolve" description="--> deploy bizsm's flash">
+		<delete includeemptydirs="true" dir="${webroot.dir}/flash/bizsm"/>
+		<mkdir dir="${webroot.dir}/flash/bizsm" />
+		<unzip src="${webroot.dir}/WEB-INF/lib/flash-bizsm-8.0.0.zip" dest="${webroot.dir}/flash/bizsm"/>
+    </target>
+	
+</project>

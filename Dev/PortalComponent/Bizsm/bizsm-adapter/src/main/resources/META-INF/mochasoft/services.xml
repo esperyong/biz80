@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="bizsm.resmodeladapter" class="com.mocha.bsm.bizsm.adapter.bsmres.MockBSMResourceModelAdapter" />
+	
+	<!-- bean id="resourceSvcMgr" class="com.mocha.bsm.bizsm.adapter.BSMServiceFactoryBean">
+		<property name="serviceName" value="com.mocha.bsm.resourcemodel.service.resource.IResourceSvcMgr" />
+	</bean>
+	
+	<bean id="baseDataQueryService" class="com.mocha.bsm.bizsm.adapter.BSMServiceFactoryBean">
+		<property name="serviceName" value="com.mocha.bsm.basedata.service.BaseDataQueryService" />
+	</bean>
+	
+	<bean id="bizsm.resmodeladapter" class="com.mocha.bsm.bizsm.adapter.bsmres.CacheAbleBSMResourceModelV8Adapter">
+		<property name="resSvc" ref="resourceSvcMgr" />
+		<property name="baseQuerySvc" ref="baseDataQueryService" />
+	</bean -->
+	
+</beans>

@@ -1,0 +1,147 @@
+<head>
+	<public:component tagName="2k3Slider">
+		<meta http-equiv="MSThemeCompatible" content="yes">
+		<public:defaults viewLinkContent viewInheritStyle="false" contentEditable="false" tabStop="true" />
+		<public:attach event="oncontentready" onevent="initElement()" />
+		<public:attach event="onpropertychange" onevent="elementPropertyChange()" />
+		<public:attach event="ondetach" onevent="cleanupElement()" />
+		<public:property name="value" value="0" />
+		<public:event name="onchange" id="onchange" />
+	</public:component>
+	
+	<style>
+		body
+		{
+			background-color: transparent;
+			height: 20px;
+			cursor: default;
+			position: absolute;
+			overflow: hidden;
+		}
+		#iSlide
+		{
+			border-top: 1px solid buttonshadow;
+			border-right: 1px solid buttonhighlight;
+			border-bottom: 1px solid buttonhighlight;
+			border-left: 1px solid buttonshadow;
+			height: 4px;
+			width: 100%;
+			margin-top: 8px;
+			overflow: hidden;
+			cursor: default;
+		}
+		#iButton
+		{
+			position: absolute;
+			top: 0px;
+			cursor: default;
+		}
+	</style>
+	
+	<script language="jscript">
+		var startX ;
+		var buttonX ;
+		var internalSettingProperties = false ;
+		function initElement() {
+			window.attachEvent("onload", elementOnLoad) ;
+			iBody.onselectstart = elementOnSelect ;
+			iBody.oncontextmenu = elementOnContextMenu ;
+			iButton.setAttribute("src", element.currentStyle.buttonImage) ;
+			iButton.onmouseover = buttonOnMouseOver ;
+			iButton.onmouseout = buttonOnMouseOut ;
+			iButton.onmousedown = buttonOnMouseDown ;
+			iButton.onmouseup = buttonOnMouseUp ;
+			iBody.onresize = bodyOnResize ;
+			iBody.onmouseup = buttonOnMouseUp ;
+		}
+		function elementOnLoad() {
+			try {
+				window.document.styleSheets.item(0).owningElement.attachEvent("onload", buttonOnMouseOut) ;
+				var newX = ((element.offsetWidth - iButton.offsetWidth) / 100) * parseInt(element.value) ;
+				if (newX > 0 || newX > (element.offsetWidth - iButton.offsetWidth)) { iButton.style.left = newX ; }
+			}
+			catch(e) {
+				alert(e) ;
+			}
+		}
+		function cleanupElement() {
+			window.document.styleSheets.item(0).owningElement.detachEvent("onload", buttonOnMouseOut) ;
+		}
+		function elementOnSelect() {
+			with (window.event) {
+				cancelBubble = true ;
+				returnValue = false ;
+			}
+			return false ;
+		}
+
+		function elementOnContextMenu() {
+			with (window.event) {
+				cancelBubble = true ;
+				returnValue = false ;
+			}
+			return false ;
+		}
+		function elementPropertyChange() {
+			if (internalSettingProperties) { return ; }
+			if (window.event.propertyName == "value") {
+				bodyOnResize() ;
+				onchange.fire() ;
+			}
+		}
+		function buttonOnMouseOver() {
+			iButton.setAttribute("src", element.currentStyle.buttonImageOver) ;
+		}
+		function buttonOnMouseOut() {
+			iButton.setAttribute("src", element.currentStyle.buttonImage) ;
+		}
+		function buttonOnMouseDown() {
+			iButton.setAttribute("src", element.currentStyle.buttonImageDown) ;
+			startX = window.event.clientX ;
+			buttonX = iButton.offsetLeft ;
+			iBody.setCapture() ;
+			iBody.onmousemove = bodyOnMouseMove ;
+		}
+		function buttonOnMouseUp() {
+			var clientX = window.event.clientX ;
+			var clientY = window.event.clientY ;
+			iBody.releaseCapture() ;
+			iBody.onmousemove = null ;
+			if ((clientX < (iButton.offsetLeft) || clientX > (iButton.offsetLeft + iButton.offsetWidth)) ||
+			   (clientY < 0 || clientY > (iButton.offsetHeight))) {
+				iButton.setAttribute("src", element.currentStyle.buttonImage) ;
+			}
+			else {
+				iButton.setAttribute("src", element.currentStyle.buttonImageOver) ;
+			}
+		}
+		function bodyOnMouseMove() {
+			var newX = window.event.clientX - startX + buttonX ;
+			if (newX < 0) {
+				newX = 0 ;
+			}
+			if (newX > element.offsetWidth - iButton.offsetWidth) {
+				newX = element.offsetWidth - iButton.offsetWidth ;
+			}
+			iButton.style.left = newX ;
+			internalSettingProperties = true ;
+			element.value = parseInt(newX / (element.offsetWidth - iButton.offsetWidth) * 100) ;
+			internalSettingProperties = false ;
+			onchange.fire() ;
+		}
+		function bodyOnResize() {
+			try {
+				var newX = ((element.offsetWidth - iButton.offsetWidth) / 100) * parseInt(element.value) ;
+				if (newX > 0 || newX > (element.offsetWidth - iButton.offsetWidth)) { iButton.style.left = newX ; }
+			}
+			catch(e) {
+				alert(e) ;
+			}
+		}
+	</script>
+</head>
+
+<body id="iBody">
+	<div id="iSlide"></div>
+	<img id="iButton">
+</body>

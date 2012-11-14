@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* CSS Document */
+.business-grid{margin:5px;}
+.business-grid-top-left{ background:url(../images/table/business-grid.png) left 0 no-repeat;padding-left:2px;}
+.business-grid-top-right{ background:url(../images/table/business-grid.png) right -52px no-repeat;padding-right:2px;}
+.business-grid-top-mid{ background:url(../images/table/business-grid.png) right -26px repeat-x;height:26px;}
+.business-grid .mid{overflow-y:auto; background-color:#FFFFFF;}
+.business-grid-bottom-left{ background:url(../images/table/business-grid.png) left -78px no-repeat;padding-left:4px;height:4px;}
+.business-grid-bottom-right{background:url(../images/table/business-grid.png) right -82px no-repeat;padding-right:4px;height:4px;}
+.business-grid-bottom-mid{background-color:#FFFFFF;height:4px;}
+
+.business-grid-grid{ border-collapse:collapse;width:100%;table-layout:fixed;}
+.business-grid-grid th{height:26px;color:#fff;line-height:26px;padding:0 4px 0 4px;;}
+.business-grid-grid tr{}
+.business-grid-grid tr td{height:26px; vertical-align:middle;padding:0 4px;color:#000000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;/* -o-text-overflow: ellipsis;    for Opera 
+text-overflow:ellipsis; for IE */}
+.business-grid-grid tr td.firstcolumn{padding:0 4px 0 4px;color:#000000;}
+.business-grid-grid tr td.lastcolumn{padding:0 4px 0 4px;color:#000000;}
+.business-grid-grid tr.business-grid-tr-on{background:url(../images/table/business-grid.png) 0 -86px repeat-x;}
+.business-grid-grid td.business-grid-td-on-expand{background:url(../images/table/business-grid-on-expandbg.png) left top repeat-x;padding:5px; border-bottom:1px solid #E9E4E4; white-space:pre-line;}
+.business-grid-grid tr.business-grid-tr-02{background-color:#E9E4E4;}
+
+/*table-border*/
+.table-b{}
+.table-b .table-b-top-l{ background:url(../images/table/table-border.png) left top no-repeat;padding-left:6px;}
+.table-b .table-b-top-r{ background:url(../images/table/table-border.png) right -12px no-repeat;padding-right:6px;}
+.table-b .table-b-top-m{background:url(../images/table/table-border.png) left -6px repeat-x;font-size:0px;height:6px;}
+.table-b .table-b-m{background:#bfbfbf;padding:0 6px;}
+.table-b .table-b-b-l{ background:url(../images/table/table-border.png) left -18px no-repeat;padding-left:6px;}
+.table-b .table-b-b-r{ background:url(../images/table/table-border.png) right -32px no-repeat;padding-right:6px;}
+.table-b .table-b-b-m{background:url(../images/table/table-border.png) left -25px repeat-x;height:7px;font-size:0px;}
+/**/
+.business-grid02{margin:6px 5px 8px 5px; }
+.business-grid02-title{font-family:'Microsoft YaHei','SimHei',Hei,'SimSun';color:#fff;font-size:16px; line-height:32px; font-weight:400; text-align:center; vertical-align:middle;}
+.business-grid02-title span{line-height:32px;margin-right:4px;}
+.business-grid02-mid{border:1px solid #838383;padding:1px;background-color:#000000}
+.business-grid02-grid{border-collapse:collapse;width:100%; table-layout:auto}
+.business-grid02-grid th{ background:url(../images/table/business-grid02.png) 0 0 repeat-x;height:26px;line-height:24px;padding:0 4px; color:#fff;}
+.business-grid02-grid tr{ background:#FFFFFF;}
+.business-grid02-grid tr.business-grid02-tr-on{ background:url(../images/table/business-grid02.png) 0 -26px repeat-x;}
+.business-grid02-grid tr.business-grid02-tr-02{ background-color:#E5E5E5;}
+.business-grid02-grid tr.business-grid02-tr-green{ background-color:#7bc557;}
+.business-grid02-grid tr.business-grid02-tr-red{ background-color:#e07878;}
+.business-grid02-grid td { padding:0 4px; line-height:26px;height:26px;}
+.business-grid02-grid td.line{border-bottom:1px solid #fff;}
+
+
+.business-grid02-grid td.business-grid02-td-left{ background:url(../images/table/business-grid02.png) 0 -52px repeat-x;border-bottom:1px solid #fff; color:#fff;line-height:24px;}
+.business-grid02-grid td.business-grid02-td-right{ background-color:#E5E5E5;border-bottom:1px solid #fff;line-height:24px;}
+.business-grid02-grid td.business-grid02-td-last{ border-bottom:none;line-height:24px;}
+/*固定布局*/
+.business-grid03-grid{border-collapse:collapse;width:100%; table-layout:fixed;}
+.business-grid03-grid th{ background:url(../images/table/business-grid02.png) 0 0 repeat-x;height:26px;line-height:24px;padding:0 4px; color:#fff;white-space:nowrap;overflow:hidden; text-overflow:ellipsis;}
+.business-grid03-grid span{height:26px;line-height:24px; color:#fff;white-space:nowrap;overflow:hidden; text-overflow:ellipsis;display:block;}
+.business-grid03-grid tr{ background:#FFFFFF;}
+.business-grid03-grid tr.business-grid03-tr-on{ background:url(../images/table/business-grid02.png) 0 -26px repeat-x;}
+.business-grid03-grid tr.business-grid03-tr-02{ background-color:#E5E5E5;}
+.business-grid03-grid tr.business-grid03-tr-green{ background-color:#7bc557;}
+.business-grid03-grid tr.business-grid03-tr-red{ background-color:#e07878;}
+.business-grid03-grid td { padding:0 4px; line-height:26px;height:26px;white-space:nowrap;overflow:hidden; text-overflow:ellipsis;}
+.business-grid032-grid td.line{border-bottom:1px solid #fff;}
+
+
+.business-grid03-grid td.business-grid03-td-left{ background:url(../images/table/business-grid02.png) 0 -52px repeat-x;border-bottom:1px solid #fff; color:#fff;line-height:24px;}
+.business-grid03-grid td.business-grid03-td-right{ background-color:#E5E5E5;border-bottom:1px solid #fff;line-height:24px;}
+.business-grid03-grid td.business-grid03-td-last{ border-bottom:none;line-height:24px;}

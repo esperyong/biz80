@@ -1,0 +1,103 @@
+
+/*grid-table 表格列宽度自适应*/
+.grid-gray-fontwhite02{margin:0 auto; table-layout:auto;width:100%;*width:auto;*+width:auto;}
+.grid-gray-fontwhite02 thead th{background:url(../images/table/grid-gray-h.gif) repeat-x scroll 0 0 transparent;height:24px; line-height:normal; font-weight:700; color:#fff;}
+.grid-gray-fontwhite02 tbody td{ background:#eaeaea;padding-top:3px;padding-bottom:3px;}
+
+/*round table content没有限定行高*/
+.roundedform-content02{ padding:0  6px; background:#fff;overflow-x:hidden; overflow-y:auto;}
+.roundedform-content02 td{ padding:3px;}
+
+/*black button 右浮动*/
+.black-btn02-l{ background:url(../images/window/black-btn.png) left 0 no-repeat; padding-left:3px;display:inline-block;*display:inline; zoom:1;  cursor:pointer; margin:0 2px ; height:22px; overflow:hidden; float:right;}
+.black-btn02-l-blank{ margin:3px 2px 0;}/*加顶部空白*/
+.black-btn02-l-off{ background:url(../images/window/black-btn.png) left 0 no-repeat; padding-left:3px;display:inline-block;*display:inline; zoom:1;  cursor:pointer; margin:0 2px; height:22px; overflow:hidden; float:right;}
+.black-btn02-l-off .btn-m a{display:inline-block;font-size:12px;height:18px;line-height:19px;margin-top:3px;*margin-top:2px;overflow:hidden;margin-left:5px; margin-right:5px;color:#999}
+.black-btn02-l .btn-r{background:url(../images/window/black-btn.png) right -44px no-repeat; padding-right:3px; height:22px;display:inline-block;*display:inline; zoom:1;  overflow:hidden;}
+.black-btn02-l .btn-m{background:url(../images/window/black-btn.png) 0 -22px repeat-x;height:22px; display:inline-block; *display:inline;zoom:1;}
+.black-btn02-l .btn-m a {display:inline-block;font-size:12px;height:18px;line-height:18px;margin-top:3px;*margin-top:2px;overflow:hidden;color:#fff; margin-left:5px; margin-right:5px;}
+.black-btn02-l .btn-m a.down{width:12px;height:12px; background:url(../images/ico/black-down.png) 0 0 no-repeat; display:inline-block;*display:inline;zoom:1; text-indent:-999px; margin-left:0; margin-right:0;margin-top:0;}
+.black-btn02-l-off  .btn-r{background:url(../images/window/black-btn.png) right -44px no-repeat; padding-right:3px; height:22px;display:inline-block;*display:inline; zoom:1;  overflow:hidden;}
+.black-btn02-l-off  .btn-m{background:url(../images/window/black-btn.png) 0 -22px repeat-x;height:22px; display:inline-block; *display:inline;zoom:1;}
+
+/*title*/
+.set-panel02-content-white{ background:#fff; margin:1px; padding-top:3px; padding-bottom:3px;overflow-y:auto;}
+.sub-panel-open{overflow:hidden;margin-bottom:5px;}
+.sub-panel-close{overflow:hidden;margin-bottom:5px;}
+.sub-panel-open .sub-panel-title{display:inline-block;*display:inline;zoom:1; vertical-align:text-bottom;}
+.sub-panel-top{ background:#E3E3E3 url(../images/window/set-tab-sub-titl.gif) left 0 no-repeat;padding:3px 3px 3px 8px;color:#404040;}
+.sub-panel-close .sub-panel-content{display:none;}
+.sub-panel-content{overflow:hidden; padding:5px; color:#464646;}
+
+.clear{ clear:both;}
+
+/*right大尺寸ico*/
+.r-big-ico{ width:22px; height:22px; background:url(../images/ico/r-ico02.png) 0 0; display:inline-block;*display:inline;zoom:1; margin-left:2px;margin-right:2px;  cursor:pointer;float:right;}
+.r-big-ico-help{ background-position:0 0}
+
+/*灯ico*/
+.light-ico{ width:16px; height:16px; background:url(../images/ico/light.png) 0 0; display:inline-block;*display:inline;zoom:1; margin-left:2px;margin-right:8px;  vertical-align:text-bottom;}
+.light-ico-red{ background-position:0 0;}
+.light-ico-green{ background-position:0 -16px;}
+.light-ico-yellow{ background-position:0 -32px;}
+.light-ico-gray{ background-position:0 -48px;}
+.light-ico-greenred{ background-position:0 -64px;}
+.light-ico-greenyellow{ background-position:0 -80px;}
+.light-ico-greengray{ background-position:0 -96px;}
+.lightshine-ico{ width:16px; height:16px; background:url(../images/ico/light-shine.gif) 0 0; display:inline-block;*display:inline;zoom:1; margin-left:2px;margin-right:2px; vertical-align:text-bottom;}
+.lightshine-ico-greenred{  background-position:0 0;}
+.lightshine-ico-greenyellow{  background-position:0 -16px;}
+.lightshine-ico-greengray{  background-position:0 -32px;}
+
+
+.lightshine-blackbg-ico{ width:16px; height:16px; background:url(../images/ico/light-shine-blckbg.gif) 0 0; display:inline-block;*display:inline;zoom:1; margin-left:2px;margin-right:2px;  cursor:pointer;  vertical-align:text-bottom;}
+.lightshine-blackbg-ico-greenred{  background-position:0 0;}
+.lightshine-blackbg-ico-greenyellow{  background-position:0 -16px;}
+.lightshine-blackbg-ico-greengray{  background-position:0 -32px;}
+
+
+
+.table{border-collapse:collapse; table-layout:auto;width:100%; }
+.table td{padding:3px;}
+.table td *{margin:2px 0px;}
+
+/*ul.fieldlist-m 下划线*/
+ul.fieldlist-m {overflow:hidden;}
+ul.fieldlist-m .title {line-height:21px;overflow:hidden;padding:2px 2px 4px 2px; vertical-align:top; border-bottom:1px solid #EBEBEB;}
+ul.fieldlist-m .txt{line-height:20px;overflow:hidden;padding:2px 2px 4px 24px; vertical-align:top; margin-bottom:10px;}
+ul.fieldlist-m li *{ vertical-align:text-bottom;}
+ul.fieldlist-m li span {vertical-align:bottom; zoom:1;}
+
+/*按钮行*/
+.buttonline{height:20px;}
+
+/*window panel&pop button02*/
+.win-button02{ border:#575757 1px solid; overflow:hidden; float:right; display:inline-block; *display:inline;zoom:1; vertical-align:middle ;margin-top:2px; cursor:pointer;margin-right:2px}
+.win-button02-border{ border:#000 1px solid; overflow:hidden;display:inline-block; *display:inline;zoom:1; background:url(../images/window/pop-window-bottom.gif) repeat-x scroll left -54px transparent}
+.win-button02-border a{  padding:2px 7px 0px;overflow:hidden; color:#fff; border:#555 1px solid;  display:inline-block; *display:inline;zoom:1; line-height:11px; }
+
+
+/*iframe背景透明*/
+.iframebg{ background-color:transparent;}
+
+/*业务服务左侧工具*/
+
+.service-tool{overflow:hidden; background:url(../images/service-leftbg.png) repeat-y scroll 0 0 transparent;width:32px;height:660px;float:left;}
+.service-tool li{margin:15px 0px 15px; }
+.service-tool .normal{width:20px; height:19px;display:block;*display:inline;zoom:1;padding:2px 0px 0px 6px;}
+.service-tool .on{ background:url(../images/service-lefttool-bg.png) no-repeat scroll transparent;width:20px; height:19px;display:block;*display:inline;zoom:1; padding:2px 0px 0px 6px;}
+.service-tool-ico{width:16px; height:16px; background:url(../images/ico/service-tool-ico.png) 0 0; display:block;*display:inline;zoom:1; text-align:center;cursor:pointer;  vertical-align:text-bottom;}
+.service-tool-ico-navi{ background-position:0 0;}
+.service-tool-ico-jk{ background-position:0 -16px;}
+.service-tool-ico-yx{ background-position:0 -32px;}
+.service-tool-ico-fx{ background-position:0 -48px;}
+.service-tool-ico-yl{ background-position:0 -64px;}
+
+.bar{ font-size:0px;width:8px; background:url(../images/bar-bg.gif) repeat-y; vertical-align:middle;margin:auto;}
+.bar-left{ position:relative;top:46%; background:url(../images/retract.png) left top no-repeat;width:8px; cursor:pointer;height:36px;}
+.bar-right{ position:relative;top:46%;  background:url(../images/retract.png) -8px top no-repeat;width:8px; cursor:pointer;height:36px;}
+
+.state{ width:16px;height:16px;background:url(../images/ico/states.gif) 0 0; display:inline-block;*display:inline;zoom:1; margin-left:3px; cursor:pointer;}
+.state-use{ background-position:left top;}
+.state-unuse{ background-position:left -16px;}
+

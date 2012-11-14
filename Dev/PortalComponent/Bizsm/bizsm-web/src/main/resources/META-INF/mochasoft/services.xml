@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="bizDefineAction" class="com.mocha.bsm.bizsm.web.action.BizDefineAction" scope="prototype">
+		<property name="bizServiceManager" ref="bizsm.bizServiceManager"/>
+	</bean>
+	
+	<bean id="bizsm.bizServiceResource" class="com.mocha.bsm.bizsm.web.action.rest.BizServiceResource" scope="prototype">
+		<property name="bizServiceManager" ref="bizsm.bizServiceManager"/>
+		<property name="bizTopologyGraphManager" ref="bizsm.bizTopoManager"/>
+	</bean>	
+	
+	<bean id="bizsm.bizUserResource" class="com.mocha.bsm.bizsm.web.action.rest.BizUserResource" scope="prototype">
+		<property name="bizUserManager" ref="bizsm.bizUserManager"/>
+	</bean>		
+	
+	<bean id="bizsm.imageResource" class="com.mocha.bsm.bizsm.web.action.rest.ImageResource" scope="prototype">
+		<property name="imageService" ref="bsm.imageManager"/>
+	</bean>	
+	
+	<bean id="bizsm.bizTopoGraphResource" class="com.mocha.bsm.bizsm.web.action.rest.BizTopologyGraphResource" scope="prototype">
+		<property name="bizTopologyGraphManager" ref="bizsm.bizTopoManager"/>
+	</bean>	
+	
+	<bean id="bizStatusDefineAction" class="com.mocha.bsm.bizsm.web.action.BizStatusDefineAction" scope="prototype">
+		<property name="bizServiceManager" ref="bizsm.bizServiceManager"/>
+	</bean>
+	
+	<bean id="bizStatusDefineService" class="com.mocha.bsm.bizsm.web.action.rpc.BizStatusDefineService" scope="prototype">
+		<property name="bizServiceManager" ref="bizsm.bizServiceManager"/>
+	</bean>
+	
+	<bean id="bizsm.bizServiceConfStateCal" class="com.mocha.bsm.bizsm.web.action.rest.BizServiceConfStateCalResource" scope="prototype">
+		<property name="confStateCalManager" ref="bizsm.confStateCalManager"/>
+	</bean>
+	
+</beans>

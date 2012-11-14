@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+TODO:s:Group
+@author chendg
+@version 1.0
+@created 2010-11-4  上午11:59:10
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:show="com.mocha.biz.monitor.ui.radar.show.*" xmlns:influence="com.mocha.biz.monitor.ui.influence.*" 
+		 >
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<mx:Image source="./assets/images/monitor_bg.png" left="0" right="0" bottom="5" top="0" maintainAspectRatio="false"/>
+	<mx:Image source="./assets/images/setting.png" top="12" left="10" buttonMode="true"/>
+	<s:HGroup  id="content" top="8" left="20" right="0" bottom="12" gap="20">		
+		<show:RadarShow  width="491"/>
+		<influence:InFluenceIndex width="{content.width-491-20-20}" height="100%"/>
+	</s:HGroup>
+</s:Group>

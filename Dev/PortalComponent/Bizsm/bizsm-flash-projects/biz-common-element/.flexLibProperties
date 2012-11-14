@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="false" version="3">
+  <includeClasses>
+    <classEntry path="com.mocha.biz.common.IPanel"/>
+    <classEntry path="com.mocha.biz.common.cache.ImageCache"/>
+    <classEntry path="com.mocha.biz.common.cache.ImageCacheUtil"/>
+    <classEntry path="com.mocha.biz.common.event.ImageCacheEvent"/>
+    <classEntry path="com.mocha.biz.common.event.PanelEvent"/>
+    <classEntry path="com.mocha.biz.common.event.RadarEvent"/>
+    <classEntry path="com.mocha.biz.common.ui.panel.EnhancePanel"/>
+    <classEntry path="com.mocha.biz.common.ui.panel.skin.EnhancePanelSkin"/>
+    <classEntry path="com.mocha.biz.common.ui.radar.IRadarToolTip"/>
+    <classEntry path="com.mocha.biz.common.ui.radar.RadarList"/>
+    <classEntry path="com.mocha.biz.common.ui.radar.RadarNode"/>
+    <classEntry path="com.mocha.biz.common.ui.radar.RadarNodeTweenHelper"/>
+    <classEntry path="com.mocha.biz.common.ui.radar.RadarNodeVisibleHelper"/>
+    <classEntry path="com.mocha.biz.common.ui.radar.RadarPositionUtil"/>
+    <classEntry path="com.mocha.biz.common.ui.radar.RadarToolTip"/>
+    <classEntry path="com.mocha.biz.common.ui.radar.skin.RadarNodeSkin"/>
+    <classEntry path="com.mocha.biz.common.ui.radar.vo.RadarNodeVO"/>
+    <classEntry path="com.mocha.biz.common.ui.radar.vo.RadarVO"/>
+    <classEntry path="com.mocha.biz.common.util.GradientUtil"/>
+    <classEntry path="com.mocha.biz.common.vo.RowVO"/>
+    <classEntry path="com.mocha.biz.common.vo.TwoColumnVO"/>
+  </includeClasses>
+  <includeResources>
+    <resourceEntry destPath="defaults.css" sourcePath="defaults.css"/>
+    <resourceEntry destPath="image/radar/pointer.png" sourcePath="image/radar/pointer.png"/>
+    <resourceEntry destPath="image/radar/pan.png" sourcePath="image/radar/pan.png"/>
+  </includeResources>
+  <namespaceManifests/>
+</flexLibProperties>

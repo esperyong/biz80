@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">	
+  
+    <head>
+        <title>${title}</title>
+        <meta name="google" value="notranslate">         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style type="text/css" media="screen"> 
+			html, body	{ height:100%; }
+			body { margin:0; padding:0; overflow:auto; text-align:center; 
+			       background-color: ${bgcolor}; }   
+			object:focus { outline:none; }
+			#flashContent { display:none; }
+        </style>
+		    
+        <script type="text/javascript" src="swfobject.js"></script>
+        <script type="text/javascript" src="CallFlash.js"></script>
+        <script type="text/javascript" src="CallJS.js"></script>
+        <script type="text/javascript">            
+            var swfVersionStr = "${version_major}.${version_minor}.${version_revision}";            
+            var xiSwfUrlStr = "${expressInstallSwf}";
+            var flashvars = {};
+            flashvars["uri"] = "./testAssets/FullData.xml";
+            var params = {};
+            params.quality = "high";
+            params.bgcolor = "${bgcolor}";
+            params.allowscriptaccess = "sameDomain";
+            params.allowfullscreen = "true";
+            var attributes = {};
+            attributes.id = "${application}";
+            attributes.name = "${application}";
+            attributes.align = "middle";
+            swfobject.embedSWF(
+                "${swf}.swf", "flashContent", 
+                "${width}", "${height}", 
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);			
+			swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+			
+			
+			function init(){
+				initFlashContentObj("${swf}");
+			}
+			
+			
+			//test start>>>>>>
+			function submitValue(){
+				if(uri.value == ""){
+					window[method.value]();
+					return;
+				}
+				
+				window[method.value].apply(null,uri.value.split(","));
+			}
+			//test end<<<<<
+			
+        </script>
+    </head>
+    <body>
+    	<body onload="init()">
+    	 <div height=20>
+    		 <span>method:</><input name="method" value="choose"/>
+        	<span>params:</><input name="uri" value="bizservice,./testAssets/bizService.xml"/>        	
+        	<input  type="button" name="click" value="submit" onclick="submitValue()"/>
+        </div>       
+        <div id="flashContent">        	
+        </div>	  	
+   </body>
+</html>

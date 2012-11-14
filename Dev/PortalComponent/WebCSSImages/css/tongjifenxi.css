@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document for 统计分析 */
+*{margin:0px;padding:0px }
+.tongji-content{ overflow:hidden;margin:0 auto; background:#ffffff;padding-top:8px;zoom:1;}
+.tongji-content .left-content{ overflow:hidden;width:230px;margin:0px 2px 5px 5px; float:left;}
+.tongji-contnet-tips{ background-color:#F2F2F2;height:21px; vertical-align:middle;padding-top:5px; line-height:16px;}
+.tongji-content .right-content{  overflow:hidden; margin:0px 8px 5px 240px;background:url(../images/window/manage.png) left -14px repeat-x #fff;border:1px solid #CACACA; text-align:center;padding-bottom:15px;}
+.tongji-content .info{margin:5px;overflow:hidden;zoom:1;*padding-top:5px;}
+.tongji-content .span{vertical-align:middle;}
+.tongji-content .span input,select{vertical-align:baseline;}
+.tongji-content .title{ text-align:center; font-size:14px; font-weight:700; margin:15px 0 10px 0;}
+.tongji-content .graphics{width:94%;overflow:hidden;margin:0 auto; text-align:center;}
+.tongji-content .graphics-top{ background:url(../images/window/shishifx.png) left top no-repeat;padding-left:4px; font-size:0px;height:4px;line-height:0px;margin:0}
+.tongji-content .graphics-top-r{ background:url(../images/window/shishifx.png) right -4px no-repeat;padding-right:4px; font-size:0px;height:4px;line-height:0px}
+.tongji-content .graphics-top-m{background-color:#bbbbbb;height:4px;font-size:0px;line-height:0px;}
+.tongji-content .graphics-mid{background-color:#bbbbbb; overflow:hidden;padding:0;*margin-top:-3px;padding:0 0 8px 0;zoom:1;}
+.tongji-content .graphics-mid .flash{margin:5px 10px;width:96.5%; text-align:center;}
+.tongji-content .graphics-mid .grid{ margin:0 0 2px 10px;}
+.tongji-content .graphics-mid .grid ul{}
+.tongji-content .graphics-mid .grid ul li{float:left;margin:3px;width:47%; position:relative;}
+.tongji-content .graphics-mid .li-l{ background:url(../images/window/shishifx.png) left -16px no-repeat;padding-left:4px;}
+.tongji-content .graphics-mid .li-r{ background:url(../images/window/shishifx.png) right -37px no-repeat;padding-right:4px;}
+.tongji-content .graphics-mid .li-m{ background:url(../images/window/shishifx.png) left -58px repeat-x;text-align:left;height:21px;width:100%;white-space:nowrap;word-break:keep-all;overflow:hidden;text-overflow:ellipsis; color:#FFF;}
+.tongji-content .graphics-mid .li-m .txt{vertical-align:middle; line-height:20px;}
+.tongji-content .graphics-mid .li-line-l{ background:url(../images/window/shishifx.png) left -142px no-repeat;padding-left:4px;}
+.tongji-content .graphics-mid .li-line-r{ background:url(../images/window/shishifx.png) right -184px no-repeat;padding-right:4px;}
+.tongji-content .graphics-mid .li-line-m{ background:url(../images/window/shishifx.png) left -163px repeat-x; vertical-align:middle;line-height:20px;text-align:left;height:21px;width:100%;white-space:nowrap;word-break:keep-all;overflow:hidden;text-overflow:ellipsis;}
+.tongji-content .graphics-mid .li-on-l{ background:url(../images/window/shishifx.png) left -79px no-repeat;padding-left:4px;}
+.tongji-content .graphics-mid .li-on-l a{ vertical-align:middle;margin:2px;position:absolute;top:0px;right:2px; }
+.tongji-content .graphics-mid .li-on-r{ background:url(../images/window/shishifx.png) right -121px no-repeat;padding-right:4px;}
+.tongji-content .graphics-mid .li-on-m{  background:url(../images/window/shishifx.png) left -100px repeat-x; vertical-align:middle;line-height:20px; text-align:left; height:21px;white-space:nowrap;padding-right:16px;} 
+.tongji-content .graphics-mid .li-on-m .content{vertical-align:middle;line-height:20px; text-align:left; height:21px;overflow:hidden;text-overflow:ellipsis;color:#494949;white-space:nowrap;} 
+.tongji-content .graphics-mid .li-on-m .content .on-txt{width:434px; overflow:hidden;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;  line-height:20px;}
+
+.tongji-content .graphics-mid .line{ background-color:#00CDEC;width:22px;display:inline-block;*display:inline;zoom:1;height:2px; font-size:0px; vertical-align:middle;margin:0 2px;}
+.tongji-content .graphics-mid .blueline{ background-color:#00CDEC;}
+.tongji-content .graphics-mid .greenline{ background-color:#05CA00;}
+.tongji-content .graphics-mid .redline{ background-color:#FE0000;}
+.tongji-content .graphics-mid .orangeline{ background-color:#FDB400;}
+.tongji-content .graphics-mid .yellowline{ background-color:#FFFC01;}
+.tongji-content .graphics-mid .blackline{ background-color:#000;}
+
+
+.tongji-content .graphics-bottom{ background:url(../images/window/shishifx.png) left -8px no-repeat;padding-left:4px;font-size:0px;height:4px; line-height:0px;*margin-top: -2px;}
+.tongji-content .graphics-bottom-r{ background:url(../images/window/shishifx.png) right -12px no-repeat;padding-right:4px;font-size:0px;height:4px;line-height:0px;}
+.tongji-content .graphics-bottom-m{background-color:#bbbbbb;height:4px;font-size:0px;line-height:0px;}
+
+.tongji-grid{}
+.tongji-grid th{padding-left:5px; background:url(../images/table/tongjifenxi-grid.png) left top repeat-x;border-right:1px solid #666;border-bottom:1px solid #4d4a43;height:43px;font-weight:700; vertical-align:middle;color:#fff;}
+.tongji-grid .trbg{ background-color:#FFF;}
+.tongji-grid th .theadbar-ico{ background:url(../images/table/triangle-round.gif) 0 0 no-repeat; width:11px; height:6px; display:inline-block;*display:inline;zoom:1; position:absolute;right:-11px;}
+.tongji-grid th .theadbar-ico-up{top:1px; background-position:0 0}
+.tongji-grid th .theadbar-ico-down{top:8px; background-position:0 -6px;}
+.tongji-grid th.rt{ background:url(../images/table/tongjifenxi-grid.png) left top repeat-x;height:21px;color:#fff;}
+.tongji-grid th.rb{ background:url(../images/table/tongjifenxi-grid.png) left -21px repeat-x;height:21px;color:#fff;line-height:21px;}
+.tongji-grid th.rb .theadbar-ico{ background:url(../images/table/triangle-round.gif) 0 0 no-repeat; width:11px; height:6px; display:inline-block;*display:inline;zoom:1; position:absolute;right:-11px;}
+.tongji-grid th.rb .theadbar-ico-up{top:1px; background-position:0 0}
+.tongji-grid th.rb .theadbar-ico-down{top:8px; background-position:0 -6px;}
+.tongji-grid td{padding:4px;line-height:14px;}
+.tongji-grid tr.line{ background-color:#e3e3e3;}
+.tingji-grid th.rt span,th.rb span,th span{display:inline-block;*display:inline;zoom:1; position:relative; font-weight:700;}
+
+

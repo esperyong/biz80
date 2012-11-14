@@ -1,0 +1,12 @@
+
+<bsm-module>
+     
+    <deploy-path type="war">
+    	<path value="${portal}\webapps\pureportal">
+
+		<src-map src="images" dest="pureportal\images" />
+		<src-map src="css" dest="pureportal\css" />		
+		</path>
+    </deploy-path>
+	 
+</bsm-module>

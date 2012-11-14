@@ -1,0 +1,9 @@
+
+<bsm-module>
+     
+    <deploy-path type="jar">
+    	<path value="${portal}\webapps\pureportal\WEB-INF\lib"/>
+    	
+    </deploy-path>
+	 
+</bsm-module>

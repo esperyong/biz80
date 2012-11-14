@@ -1,0 +1,229 @@
+<%@ page language="java" contentType="text/html;charset=UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	author:qiaozheng
+	description:业务服务定义首页
+	uri:{domainContextPath}/bizsm/bizservice/ui/bizdefinemain
+ -->
+<%@ include file="/WEB-INF/common/taglibs.jsp" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<%@ include file="/WEB-INF/common/meta.jsp" %>
+<title>服务定义首页</title>
+
+<link href="${ctx}/css/master.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/css/portal.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="${ctx}/js/jquery-1.4.2.min.js"></script>
+
+<script src="${ctx}/js/component/cfncc.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="${ctx}/js/component/plugins/jquery.ui.core.js"></script>
+<script type="text/javascript" src="${ctx}/js/component/plugins/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="${ctx}/js/component/plugins/jquery.ui.mouse.js"></script>
+<script type="text/javascript" src="${ctx}/js/component/plugins/jquery.ui.draggable.js"></script>
+<script type="text/javascript" src="${ctx}/js/component/plugins/jquery.ui.accordion.js"></script>
+
+<script type="text/javascript" src="${ctx}/js/component/accordionPanel/j-dynamic-accordion.js"></script>
+
+<script type="text/javascript" src="${ctx}/js/component/tabPanel/j-dynamic-tab.js"></script>
+<script type="text/javascript" src="${ctx}/js/component/pullBox/j-dynamic-pullbox.js"></script>
+
+<script language="javascript">
+
+	$(function() {
+		
+			$("#standardAccordionHull #standardAccordionHullTitle").css("width", "250px");
+			$("#standardAccordionHull #standardAccordionHullBottom").css("width", "250px");
+
+			//padding-top:5px;padding-left:20px;position:absolute;top:10px;left:0px;z-index:10;
+			//$("#standardAccordionHull").css("padding-top", "5px");
+			//$("#standardAccordionHull").css("padding-left", "5px");
+			$("#standardAccordionHull").css("position", "absolute");
+			$("#standardAccordionHull").css("top", "10px");
+			$("#standardAccordionHull").css("left", "5px");
+			$("#standardAccordionHull").css("z-index", "10");
+
+			/*
+			var settingObj = {};
+
+			settingObj["panelName"] = "BizService";
+			settingObj["panelWidth"] = "250px";
+			settingObj["contentHeight"] = "430px";
+			settingObj["panelTop"] = "5px";
+			settingObj["panelLeft"] = "10px";
+			*/
+
+			$.readLeftBizService = function(expanseSlabID){
+				$('#standardAccordionHull #jAccordionRoot').empty();
+				
+				var tp = new JDynamicAccordionPanel({panelName:"Accordion Tree",panelWidth:"200px",contentHeight:"430px",panelTopClassName:"tree-panel-top",panelIcoClassName:"tree-panel-ico",panelTitleClassName:"tree-panel-title",panelContentClassName:"tree-panel-content-top"});
+				
+				
+
+				$.get('${ctx}/bizservice/.xml',{},function(data){
+					var $serviceNodes = $(data).find('BizService');
+					var tempID = "";
+					$serviceNodes.each(function(i){
+						var $thisService = $(this);
+						var idStr = $thisService.find('bizId').text();
+		
+						tp.addPageSlab({id:idStr,name:$thisService.find('name').text(),contentHeight:"200px",dataURI:"${ctx}/bizsm/bizservice/ui/bizdefine-biztreeview?uri="+$thisService.find('uri').text()+".xml",delURI:"${ctx}/bizservice/"+idStr});
+						
+						
+
+						if(i == 0){
+							tempID = idStr;
+						}
+						//alert("nodeName:"+this.nodeName);
+						//alert(this.firstChild.nodeValue);
+						//alert("nodeType:"+this.nodeType);
+						
+						//temp["name"] = this.firstChild.nodeValue;//this.getAttribute("name");
+						//temp["id"] = this.getAttribute("id");
+						//temp["url"] = "${ctx}/"+this.getAttribute("url")+"?bizID="+temp["id"];
+					});
+
+					tp.click(function(currentObj){
+						$.readRightPullBox(currentObj.id);
+					});
+					
+					tp.appendToContainer($('#standardAccordionHull #jAccordionRoot'));
+
+					if(expanseSlabID == "first"){
+						expanseSlabID = tempID;
+					}
+					tp.expanseSlab(expanseSlabID);
+
+					
+
+				});
+
+				
+			}
+			
+			$.readRightPullBox = function(serviceID){
+				$('body #rightRoot').empty();
+
+				var tabPanelTemp = new JDynamicTabPanel({panelID:"jTabsOne"});
+				tabPanelTemp.addPageTab({id:"tab-1",name:"常规信息",height:"400px"}, "${ctx}/bizsm/bizservice/ui/bizservicemanager!getGeneralInfo?serviceId="+serviceID);
+				tabPanelTemp.addPageTab({id:"tab-2",name:"业务服务",height:"300px"}, "${ctx}/bizservice/?canAdoptByServiceId="+serviceID);
+				tabPanelTemp.addPageTab({id:"tab-3",name:"资源",height:"200px"}, "");
+				tabPanelTemp.addPageTab({id:"tab-4",name:"业务单位",height:"200px"}, "${ctx}/bizuser/");
+				tabPanelTemp.addPageTab({id:"tab-5",name:"自定义元素",height:"200px"}, "");
+				tabPanelTemp.expanseTab("tab-1");
+
+				var tabPanelTemp2 = new JDynamicTabPanel({panelID:"jTabsTwo"});
+				tabPanelTemp2.addPageTab({id:"tab-1",name:"tab1",height:"200px"}, "");
+				tabPanelTemp2.addPageTab({id:"tab-2",name:"tab2",height:"300px"}, "");
+				tabPanelTemp2.addPageTab({id:"tab-3",name:"tab3",height:"200px"}, "");
+				tabPanelTemp2.expanseTab("tab-2");
+
+				var tabPanelTemp3 = new JDynamicTabPanel({panelID:"jTabsTwo"});
+				tabPanelTemp3.addPageTab({id:"tab-1",name:"tab1",height:"200px"}, "");
+				tabPanelTemp3.addPageTab({id:"tab-2",name:"tab2",height:"300px"}, "");
+				tabPanelTemp3.addPageTab({id:"tab-3",name:"tab3",height:"200px"}, "");
+				tabPanelTemp3.expanseTab("tab-3");
+
+				var accordionPanel = new JDynamicAccordionPanel({panelName:"myAccordion",panelWidth:"200px",panelIcoClassName:"set-panel-ico",panelTopClassName:"set-panel-top",panelTitleClassName:"set-panel-title",panelContentClassName:"set-panel-content"});
+				accordionPanel.addInnerComponetSlab({id:"slab-1",name:"服务定义",contentHeight:"460px"}, tabPanelTemp.getTabPanelElement());
+				accordionPanel.addInnerComponetSlab({id:"slab-2",name:"状态定义",contentHeight:"400px"}, tabPanelTemp2.getTabPanelElement());
+				accordionPanel.addInnerComponetSlab({id:"slab-3",name:"警告定义",contentHeight:"400px"}, tabPanelTemp3.getTabPanelElement());
+				
+
+				var jpullPanelObj = new JDynamicPullPanel({panelID:"jPull-1", contentWidth:"400px"});
+				//jpullPanelObj.addPageContent({id:"content-1"}, "accordion-template.html");
+				
+				jpullPanelObj.addInnerComponet({id:"content-1"}, accordionPanel.getAccordionPanelElement());
+
+				jpullPanelObj.appendToContainer('body #rightRoot');
+
+				accordionPanel.expanseSlab("slab-1");
+			}
+
+			
+			$("#standardAccordionHull>#standardAccordionHullTitle #addBiz-h").bind("click", function(){
+				//var child = window.open('${ctx}/bizsm/bizservice/ui/addnewbizservice', 'Add Biz', 'width=400, height=230,top=230,left=400,toolbar=no, menubar=no, scroll=no, resizable=no,location=no, status=no');
+				//child.focus();
+
+				  var returnValue = showModalPopup("${ctx}/bizsm/bizservice/ui/addnewbizservice", 'Add Biz', "230px", '400px');
+				  if(returnValue){
+					  $.get('${ctx}/'+returnValue+".xml", {},function(data){
+						var $thisService= $(data).find('BizService');
+						var idStr = $thisService.find('bizId').text();
+						
+						$.readLeftBizService(idStr);
+
+						//tp.addPageSlab({id:idStr, name:$thisService.find('name').text(),contentHeight:"200px",delURI:"${ctx}/bizservice/"+idStr}, "${ctx}/bizsm/bizservice/ui/bizdefine-biztreeview?uri="+$thisService.find('uri').text()+".xml");
+						
+						//if(currentBizID == "") currentBizID = $thisService.find('id').text();
+
+						//tp.appendToContainer($('#standardAccordionHull #jAccordionRoot'));
+						//tp.expanseSlab(idStr);
+
+					});
+				  }
+			});
+
+			$.readLeftBizService("first");
+
+	});
+	
+	function showModalPopup(URL,name,height,width) {
+		var properties = "resizable=no;center=yes;help=no;status=no;scroll=no;dialogHeight = " + height;
+		properties = properties + ";dialogWidth=" + width;
+		var leftprop, topprop, screenX, screenY, cursorX, cursorY, padAmt;
+		screenY = document.body.offsetHeight;
+		screenX = window.screen.availWidth;
+
+		leftvar = (screenX - width) / 2;
+		rightvar = (screenY - height) / 2;
+		leftprop = leftvar;
+		topprop = rightvar;
+
+		properties = properties + ", dialogLeft = " + leftprop;
+		properties = properties + ", dialogTop = " + topprop;
+
+		return window.showModalDialog(URL,name,properties);
+	}
+
+</script>
+</head>
+<body>
+	<div id='standardAccordionHull' class='dragapply'>
+		<div id='standardAccordionHullTitle' class='left-panel-open'>
+			<div class='left-panel-l'>
+				<div class='left-panel-r ui-dialog-titlebar'>
+					<div id='accordionDragHandle' class='left-panel-m'>
+						<span class='left-panel-title'>Accordion Box</span>
+					</div>
+				</div>
+			</div>
+			<div class='left-panel-content'>
+				<table width="100%">
+					<tr>
+						<td width="100%" style="text-align:right;">
+							<a id="addBiz-h" href="#">添加</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<hr/>
+						</td>
+					</tr>
+				</table>
+				<div id='jAccordionRoot'></div>
+			</div>
+			<div id='standardAccordionHullBottom' class='left-panel-close'>
+				<div class='left-panel-l'>
+					<div class='left-panel-r'>
+						<div class='left-panel-m'><span class='left-panel-title'></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="rightRoot" style="height:100%;width:100%"></div>
+</body>
+</html>

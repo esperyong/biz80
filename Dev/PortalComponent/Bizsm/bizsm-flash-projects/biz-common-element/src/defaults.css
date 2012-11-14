@@ -1,0 +1,30 @@
+@namespace panel "com.mocha.biz.common.ui.panel.*";
+@namespace radar "com.mocha.biz.common.ui.radar.*";
+/**
+//请参考文档
+//http://help.adobe.com/en_US/flex/using/WS2db454920e96a9e51e63e3d11c0bf69084-7f85.html#WS2db454920e96a9e51e63e3d11c0bf69084-7e8c
+//
+*/
+
+/*
+//------------------------------
+//  OctopusMarquee
+//------------------------------
+*/
+panel|EnhancePanel
+{
+	skinClass: ClassReference("com.mocha.biz.common.ui.panel.skin.EnhancePanelSkin");	
+	borderColor:#000000;
+	borderAlpha:1;
+}
+
+radar|RadarNode
+{
+	skinClass: ClassReference("com.mocha.biz.common.ui.radar.skin.RadarNodeSkin");	
+}
+
+radar|RadarList
+{
+	panImageSkin: Embed(source="image/radar/pan.png");	
+	pointerImageSkin:Embed(source="image/radar/pointer.png");	
+}

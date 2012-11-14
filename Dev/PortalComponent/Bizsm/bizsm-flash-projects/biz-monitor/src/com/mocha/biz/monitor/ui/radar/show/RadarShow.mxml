@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+TODO:s:Group
+@author chendg
+@version 1.0
+@created 2010-11-4  下午01:51:55
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:radar="com.mocha.biz.common.ui.radar.*">
+	<s:layout>
+		<s:VerticalLayout verticalAlign="middle" horizontalAlign="center"/>
+	</s:layout>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<mx:Image id="radarTitle" source="./assets/images/ywfwjk.png"/>
+	<radar:RadarList  id="radar" y="22" width="491" height="494" 
+					  pointerImgWidth="438" pointerImgHeight="437"/>
+</s:Group>

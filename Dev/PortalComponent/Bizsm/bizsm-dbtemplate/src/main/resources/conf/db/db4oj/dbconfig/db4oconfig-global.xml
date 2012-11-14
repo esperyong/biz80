@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<db4o-configuration>
+	<common-config>
+			<global>
+				<!-- LAZY,IMMEDIATE,SNAPSHOT -->
+				<evaluationMode>LAZY</evaluationMode>
+				<!-- CommonConfiguration.activationDepth -->
+				<activationDepth>5</activationDepth>
+			</global>
+	</common-config>
+	<file-config>
+		<!-- 
+			sets the storage data blocksize for new ObjectContainers.
+
+			The standard setting is 1 allowing for a maximum database file size of 2GB. This value can be increased to allow larger database files, although some space will be lost to padding because the size of some stored objects will not be an exact multiple of the block size. A recommended setting for large database files is 8, since internal pointers have this length.
+
+			This setting is only effective when the database is first created, in client-server environment in most cases it means that the setting should be used on the server side. 		
+		-->
+		<blockSize>8</blockSize>
+	</file-config>
+</db4o-configuration>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+   xmlns:s="library://ns.adobe.com/flex/spark" 
+   xmlns:mx="library://ns.adobe.com/flex/mx" initialize="init()" width="235" height="235">
+	
+	<fx:Declarations>
+		<mx:Rotate id="rotateImg" target="{pointerImg}"
+				   tweenUpdate="tweenUpdateHandler(event);" 
+				   angleTo="{this.startAngle}" angleFrom="{this.endAngle}" duration="{this.sglPointRotationDuration*this.nodeCount}"
+				   repeatCount="0"  easingFunction="Linear.easeOut"/>
+	</fx:Declarations>
+	
+	<mx:Image id="panImg" width="{this.width}" height="{this.height}" x="0" y="0" visible="true"/>
+	<mx:Image id="pointerImg" width="{this.pointerImgWidth}"
+			  height="{this.pointerImgHeight}" alpha="0.5"
+			  creationComplete="imgLoadComplete(event);" visible="true"/>
+	
+	<fx:Metadata>
+		[Style(name="panImageSkinURL", type="Class", inherit="no")]
+		[Style(name="pointerImageSkinURL", type="Class", inherit="no")]
+		[Style(name="panImageSkin", type="String", inherit="no")]
+		[Style(name="pointerImageSkin", type="String", inherit="no")]
+		
+		[Event(name="clickNode", type="com.mocha.biz.common.event.RadarEvent")]
+		[Event(name="doubleNode", type="com.mocha.biz.common.event.RadarEvent")]
+
+	</fx:Metadata>
+	<fx:Script>
+		<![CDATA[
+			import com.mocha.biz.common.event.RadarEvent;
+			import com.mocha.biz.common.ui.radar.vo.RadarNodeVO;
+			
+			import mx.controls.Alert;
+			import mx.effects.Tween;
+			import mx.effects.easing.Linear;
+			import mx.events.IndexChangedEvent;
+			import mx.events.TweenEvent;
+			
+			[Bindable]
+			[Inspectable(category="General", defaultValue="2000")]
+			/**
+			 * 单个节点旋转时间 单位：毫秒
+			 */
+			public var sglPointRotationDuration: Number = 2000;
+			[Bindable]
+			[Inspectable(category="General", defaultValue="0")]
+			/**
+			 * 旋转结束角度
+			 */
+			public var endAngle: Number = 0;
+			
+			[Bindable]
+			/**
+			 * 指针左边界
+			 */
+			public var pointerImgWidth: Number = 235;
+			
+			[Bindable]
+			/**
+			 * 指针左边界
+			 */
+			public var pointerImgHeight: Number = 235;
+			
+			
+			/**
+			 * 雷达初始节点数组数据
+			 */
+			public var radarNodesData: Array;
+			
+			[Inspectable(category="General", defaultValue="360")]
+			[Bindable]
+			/**
+			 * 开始角度
+			 */
+			public var startAngle: Number = 360;
+			
+			
+			private var offsetAngle:Number = -90;
+			
+			private var _nodeCount: Number = 16;
+			private var _nodeCountChange:Boolean = true;
+			
+			private var nodeArr:Array = [];
+
+			[Bindable]
+			/**
+			 * 节点数
+			 */
+			public function get nodeCount():Number
+			{
+				return _nodeCount;
+			}
+
+			/**
+			 * @private
+			 */
+			public function set nodeCount(value:Number):void
+			{
+				if(this._nodeCount == value){
+					return;					
+				}
+				_nodeCount = value;
+				_nodeCountChange = true;
+				this.invalidateProperties();
+			}
+			
+			private function createNode():void
+			{
+				var originPoint:Point = getCenterPoistion();
+				var xyRadius:Array = RadarPositionUtil.getCircleRadius([originPoint.x,originPoint.y],RadarNodeVO.GREEN);
+				var needCreateNodes:Number = this.nodeArr.length - this._nodeCount;
+				
+				var uintDegree:Number = 360/this._nodeCount;
+				var nodeDegree:Number;
+				
+				var loopCount:Number;
+				var node:RadarNode;
+				if(needCreateNodes > 0 && this._nodeCount > 0){
+					var delArray:Array = this.nodeArr.splice(this._nodeCount,needCreateNodes);
+					for each(node in delArray){
+						node.helper = null;
+						this.removeElement(node);
+					}
+				} 
+				else if(needCreateNodes < 0){
+					loopCount = Math.abs(needCreateNodes);
+					
+					for(var index:Number=0;index<loopCount;index++){
+						
+						nodeDegree = (index*uintDegree+offsetAngle + uintDegree/2);
+						node = new RadarNode();	
+						var helper:RadarNodeTweenHelper = new RadarNodeTweenHelper(node,originPoint,
+								[originPoint.x,originPoint.y]);
+						node.helper = helper;
+						node.width = 50;
+						node.height = 40;
+						node.centerPosition = RadarPositionUtil.getCirclePosition(originPoint,nodeDegree,xyRadius);
+						node.degree = nodeDegree;
+						node.nodeIndex = this.nodeArr.length;
+						this.nodeArr.push(node);
+						this.addElement(node);
+//						if(index != 3){
+//							node.isMoveEffect = true;
+//						}
+					}
+				}
+				_nodeCountChange = false;
+			}
+			
+
+			private function init():void{
+				if(getStyle("panImageSkinURL")){
+					panImg.source = getStyle("panImageSkinURL");
+				} else {
+					panImg.source = getStyle("panImageSkin");
+				}
+				if(getStyle("pointerImageSkinURL")){
+					pointerImg.source = getStyle("pointerImageSkinURL");
+				} else {
+					pointerImg.source = getStyle("pointerImageSkin");
+				}
+				
+				this.addEventListener(MouseEvent.MOUSE_DOWN,mouseDownHandler);
+				this.addEventListener(MouseEvent.DOUBLE_CLICK,mouseDoubleHandler);
+			}
+			
+			override protected function commitProperties():void
+			{
+				super.commitProperties();
+				if(this._nodeCountChange){
+					this.createNode();
+				}
+			}
+			
+			private function mouseDownHandler(e:MouseEvent):void
+			{
+				if(e.currentTarget is RadarNode){
+					var clickNodeEvent:RadarEvent = new RadarEvent(e.currentTarget as  RadarNode,RadarEvent.CLICK_NODE);
+					this.dispatchEvent(clickNodeEvent);
+				}
+			}
+			
+			private function mouseDoubleHandler(e:MouseEvent):void
+			{
+				if(e.currentTarget is  RadarNode){
+					var clickNodeEvent:RadarEvent = new RadarEvent(e.currentTarget as  RadarNode,RadarEvent.DOUBLE_CLICK_NODE);
+					this.dispatchEvent(clickNodeEvent);
+				}
+			}
+			
+			private function tweenUpdateHandler(e:TweenEvent):void{
+				var uintDegree:Number = 360/this._nodeCount;
+				
+				var index:Number = 0;
+				for each(var nodeData:RadarNodeVO in this.radarNodesData){
+					if(nodeData && index < this.nodeArr.length){
+						var node:RadarNode = this.nodeArr[index];
+						var gap:Number = node.degree - offsetAngle - Number(e.value);
+						if (gap >= -10 && gap < -2  && !node.isMoveEffect && node.status != nodeData.nodeStatus){
+							node.isMoveEffect = true;
+							var helper:RadarNodeTweenHelper = node.helper;
+							helper.moveEffect(node.status,nodeData.nodeStatus);
+							
+							node.nodeData = nodeData;
+							break;
+						}
+					}
+					index++;
+				}
+//				for each(var node:RadarNode in nodeArr){
+//					var gap:Number = node.degree - offsetAngle - Number(e.value);
+//					if (gap >= -10 && gap < -2  && !node.isMoveEffect){
+//						node.isMoveEffect = true;
+//						var helper:RadarNodeTweenHelper = node.helper;
+//						helper.moveEffect(RadarNodeVO.GREEN,RadarNodeVO.YELLOW);
+//						break;
+//					}
+//				}
+				
+			}
+			
+			
+			private function imgLoadComplete(e:Event):void
+			{
+				var pointerPosition:Point = getPointerPosition();
+				var originPostion:Point = getRotationCenter();
+				this.pointerImg.x = pointerPosition.x;
+				this.pointerImg.y = pointerPosition.y;
+				rotateImg.originX = originPostion.x;
+				rotateImg.originY = originPostion.y;
+				rotateImg.play();
+			}
+			
+			private function getPointerPosition():Point
+			{
+				var point:Point = new Point();
+				point.x = (this.getExplicitOrMeasuredWidth()-this.pointerImgWidth)/2;
+				point.y = (this.getExplicitOrMeasuredWidth()-this.pointerImgHeight)/2;
+				return point;
+			}
+			private function getRotationCenter():Point
+			{
+				var point:Point = new Point();
+				point.x = this.pointerImgWidth/2;
+				point.y = this.pointerImgHeight/2;
+				return point;
+			}
+			
+			private function getCenterPoistion():Point
+			{
+				return new Point(this.getExplicitOrMeasuredWidth()/2,this.getExplicitOrMeasuredHeight()/2);
+			}
+			
+			
+		]]>
+	</fx:Script>
+</s:Group>

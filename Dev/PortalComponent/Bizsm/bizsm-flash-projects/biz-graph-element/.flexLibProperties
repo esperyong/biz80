@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="true" version="3">
+  <includeClasses>
+    <classEntry path="com.mocha.biz.ui.comparent.SubFlowUI"/>
+    <classEntry path="com.mocha.biz.ui.comparent.BizUserUI"/>
+    <classEntry path="com.mocha.biz.ui.factory.MonitorResouceFactory"/>
+    <classEntry path="com.mocha.biz.ui.factory.SubFlowFactory"/>
+    <classEntry path="com.mocha.biz.ui.factory.CustomShapeFactory"/>
+    <classEntry path="com.mocha.biz.ui.stencil.BizUserStencil"/>
+    <classEntry path="com.mocha.biz.ui.stencil.MonitorResourceStencil"/>
+    <classEntry path="com.mocha.biz.ui.stencil.CustomShapeStencil"/>
+    <classEntry path="com.mocha.biz.ui.component.node.CommonNode"/>
+    <classEntry path="com.mocha.biz.ui.component.node.skin.CommonNodeSkin"/>
+    <classEntry path="com.mocha.biz.ui.stencil.CommonNodeStencil"/>
+    <classEntry path="com.mocha.biz.ui.cvo.GraphVO"/>
+    <classEntry path="com.mocha.biz.ui.data.PropertyValueType"/>
+    <classEntry path="com.mocha.biz.ui.data.ImportData"/>
+    <classEntry path="com.mocha.biz.ui.data.GraphCanvasProxy"/>
+    <classEntry path="com.mocha.biz.ui.event.ImageCacheEvent"/>
+  </includeClasses>
+  <includeResources>
+    <resourceEntry destPath="defaults.css" sourcePath="defaults.css"/>
+  </includeResources>
+  <namespaceManifests/>
+</flexLibProperties>

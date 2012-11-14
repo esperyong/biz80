@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+
+    <bean type="com.opensymphony.xwork2.ActionProxyFactory" name="rest" class="com.mocha.bsm.bizsm.struts2rest.RestActionProxyFactory" />
+	<bean type="org.apache.struts2.dispatcher.mapper.ActionMapper" name="rest" class="com.mocha.bsm.bizsm.struts2rest.Restful3ActionMapper" />
+
+	<bean type="com.mocha.bsm.bizsm.struts2rest.IContentTypeHandlerManager" class="com.mocha.bsm.bizsm.struts2rest.DefaultContentTypeHandlerManager" />
+
+    <bean type="com.mocha.bsm.bizsm.struts2rest.handler.IContentHandler" name="xml" class="com.mocha.bsm.bizsm.struts2rest.handler.XStreamHandler" />
+    <bean type="com.mocha.bsm.bizsm.struts2rest.handler.IContentHandler" name="json" class="com.mocha.bsm.bizsm.struts2rest.handler.JsonLibHandler" />
+    <bean type="com.mocha.bsm.bizsm.struts2rest.handler.IContentHandler" name="html" class="com.mocha.bsm.bizsm.struts2rest.handler.HtmlHandler" />
+    <bean type="com.mocha.bsm.bizsm.struts2rest.handler.IContentHandler" name="x-www-form-urlencoded" class="com.mocha.bsm.bizsm.struts2rest.handler.FormUrlEncodedHandler" />
+    <bean type="com.mocha.bsm.bizsm.struts2rest.handler.IContentHandler" name="multipart/form-data" class="com.mocha.bsm.bizsm.struts2rest.handler.MultipartFormDataHandler" />
+
+    <constant name="struts.actionProxyFactory" value="rest" />
+    <constant name="struts.rest.defaultExtension" value="xhtml" />
+    <constant name="struts.mapper.class" value="rest" />
+    <constant name="struts.mapper.idParameterName" value="id" />
+    <constant name="struts.action.extension" value="xhtml,,xml,json" />
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
+	
+    <package name="rest-default" extends="struts-default">
+        <result-types>
+            <result-type name="redirect" class="org.apache.struts2.dispatcher.ServletRedirectResult">
+                <param name="statusCode">303</param>
+            </result-type>
+            <result-type name="redirectAction" class="org.apache.struts2.dispatcher.ServletActionRedirectResult">
+                <param name="statusCode">303</param>
+            </result-type>
+            <result-type name="errorXml" class="com.mocha.bsm.bizsm.struts2rest.dispatcher.XmlResult"/>
+        </result-types>
+		
+        <interceptors>
+            <interceptor name="rest" class="com.mocha.bsm.bizsm.struts2rest.ContentTypeInterceptor"/>
+            <interceptor name="restWorkflow" class="com.mocha.bsm.bizsm.struts2rest.RestWorkflowInterceptor"/>
+            <interceptor name="messages" class="org.apache.struts2.interceptor.MessageStoreInterceptor" />
+
+            <!-- A complete stack with all the common interceptors in place.
+                 Generally, this stack should be the one you use, though it
+                 may do more than you need. Also, the ordering can be
+                 switched around (ex: if you wish to have your servlet-related
+                 objects applied before prepare() is called, you'd need to move
+                 servletConfig interceptor up.
+
+                 This stack also excludes from the normal validation and workflow
+                 the method names input, back, and cancel. These typically are
+                 associated with requests that should not be validated.
+                 -->
+            <interceptor-stack name="restDefaultStack">
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="messages">
+                    <param name="operationMode">AUTOMATIC</param>
+                </interceptor-ref>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="debugging"/>
+                <interceptor-ref name="profiling"/>
+                <interceptor-ref name="actionMappingParams"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven">
+                    <param name="refreshModelBeforeResult">true</param>
+                </interceptor-ref>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="rest" />
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse,list,view,editNew,viewStructureMeta,viewResourcesOperations,viewResourceOperations</param>
+                </interceptor-ref>
+                <interceptor-ref name="restWorkflow">
+                    <param name="excludeMethods">input,back,cancel,browse,list,view,editNew,viewStructureMeta,viewResourcesOperations,viewResourceOperations</param>
+                </interceptor-ref>
+            </interceptor-stack>
+
+        </interceptors>
+
+        <default-interceptor-ref name="restDefaultStack"/>
+
+        <default-class-ref class="com.mocha.bsm.bizsm.struts2rest.RestActionSupport"/>
+
+    </package>
+
+</struts>

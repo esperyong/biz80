@@ -1,0 +1,5 @@
+<MonitableResource>
+	<uri>./testAssets/resource.xml</uri>
+	<resourceInstanceId>123</resourceInstanceId>
+	<name>123</name>
+</MonitableResource>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>folderid:[bizsm-customelement-baseshape],imageId:[88634420542006616281103020926141299029174859]</comment>
+<entry key="ContentType">application/x-shockwave-flash</entry>
+<entry key="imageName">直线</entry>
+<entry key="imageFileName">直线.swf</entry>
+<entry key="shapeType">line</entry>
+</properties>

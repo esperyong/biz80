@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<db4o-configuration>
+	<common-config>
+			<object-classes>
+				<object-class name="com.mocha.bsm.bizsm.core.model.BizUser">
+					<fields>
+						<field name="ips">
+							<cascadeOnUpdate>true</cascadeOnUpdate>
+							<cascadeOnDelete>true</cascadeOnDelete>
+						</field>
+						<field name="vlsms">
+							<cascadeOnUpdate>true</cascadeOnUpdate>
+							<cascadeOnDelete>true</cascadeOnDelete>
+						</field>										
+					</fields>
+				</object-class>	
+			</object-classes>
+	</common-config>
+</db4o-configuration>
+

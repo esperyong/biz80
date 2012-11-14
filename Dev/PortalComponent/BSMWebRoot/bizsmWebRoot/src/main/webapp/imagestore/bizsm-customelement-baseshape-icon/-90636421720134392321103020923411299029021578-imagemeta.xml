@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>folderid:[bizsm-customelement-baseshape-icon],imageId:[-90636421720134392321103020923411299029021578]</comment>
+<entry key="ContentType">image/png</entry>
+<entry key="imageName">椭圆</entry>
+<entry key="imageFileName">imagePNG</entry>
+<entry key="shapeType">elipse</entry>
+</properties>

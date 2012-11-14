@@ -1,0 +1,106 @@
+<project name="common" xmlns:ivy="antlib:org.apache.ivy.ant">	
+	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant"/>     
+	<property file="${build.common.dir}/build.properties"/>
+
+    <path id="lib.path.id">
+        <fileset dir="${lib.dir}" />
+    </path>
+    <path id="run.path.id">
+        <path refid="lib.path.id" />
+        <path location="${classes.dir}" />
+    </path>
+
+    <ivy:settings file="${build.common.dir}/ivysettings.xml" />
+      
+	
+    <!-- ================================= 
+          target: resolve              
+         ================================= -->
+    <target name="resolve" depends="clean-lib" description="--> resolve and retrieve dependencies with ivy">
+        <mkdir dir="${lib.dir}"/> <!-- not usually necessary, ivy creates the directory IF there are dependencies -->
+    	
+    	<!-- the call to resolve is not mandatory, retrieve makes an implicit call if we don't -->
+    	<ivy:resolve file="${ivy.file}"/>
+    	<ivy:retrieve pattern="${lib.dir}/[artifact]-[revision].[ext]" />
+    </target>
+    
+    <!-- ================================= 
+          target: report              
+         ================================= -->
+    <target name="report" depends="resolve" description="--> generates a report of dependencies">
+        <ivy:report todir="${build.dir}"/>
+    </target>
+    
+    <!-- ================================= 
+          target: compile              
+         ================================= -->
+    <target name="compile" depends="resolve" description="--> compile the project">
+        <mkdir dir="${classes.dir}" />
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="lib.path.id" debug="true" encoding="utf-8" nowarn="false" target="${javac.target.version}" source="${javac.target.version}"/>
+    </target>       
+    
+    <!-- ================================= 
+          target: war              
+         ================================= -->
+    <target name="war" depends="compile" description="--> make a war file for this project">
+        <mkdir dir="${build.dir}" />
+        
+        <tstamp>
+            <format property="now" pattern="yyyyMMddHHmmss"/>
+        </tstamp>
+                
+		<war destfile="${build.dir}/${ant.project.name}.war" duplicate="fail" webxml="${webroot.dir}/WEB-INF/web.xml">
+	        <fileset dir="${webroot.dir}"/>
+			<classes dir="${classes.dir}"/>
+			<lib dir="${lib.dir}">
+			    <include name="*.jar"/>
+			    <exclude name="servlet-*.jar"/>
+			</lib>
+		    <manifest>
+                <attribute name="Built-By" value="${user.name}"/>
+                <attribute name="Build-Version" value="${ivy.revision}" />
+                <attribute name="Built-time" value="${now}"/>
+            </manifest>
+	    </war>
+    </target>
+
+    <!-- ================================= 
+          target: artifact              
+         ================================= -->
+	<target name="artifact" depends="war" description="--> make the final artifact ready to publish"/>
+
+    <!-- ================================= 
+          target: publish
+         ================================= -->	
+	<target name="publish" depends="artifact" description="--> publish war to the top directory">
+		<copy todir="${war.publish.dir}">
+			<fileset dir="${build.dir}">
+			  <include name="*.war"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ================================= 
+          target: clean-lib              
+         ================================= -->
+    <target name="clean-lib" description="--> clean the project libraries directory (dependencies)">
+        <delete includeemptydirs="true" dir="${lib.dir}"/>
+    </target>
+
+    <!-- ================================= 
+          target: clean-build              
+         ================================= -->
+    <target name="clean-build" description="--> clean the project built files">
+        <delete includeemptydirs="true" dir="${build.dir}"/>
+    </target>
+
+    <!-- ================================= 
+          target: clean              
+         ================================= -->
+    <target name="clean" depends="clean-build, clean-lib" description="--> clean the project" />
+    
+    <target name="install">
+    	<ivy:install organisation="org.mockito" module="mockito-core" revision="1.8.4" from="libraries" to="local" transitive="true"/>
+    </target>
+
+</project>

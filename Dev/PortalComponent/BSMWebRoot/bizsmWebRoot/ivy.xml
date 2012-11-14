@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+    
+	<info
+        organisation="com.bsm"
+        module="bizsm-war"
+        revision="${revision}"
+        status="integration">
+	</info>
+
+	<configurations>
+		<conf name="default" visibility="public"/>
+		<conf name="runtime" extends="default"/>
+		<conf name="optional" extends="default" visibility="public" description="contains all optional dependencies"/>
+		<conf name="test" extends="default" visibility="private"/>
+	</configurations>
+	
+	<dependencies>
+		<dependency org="opensymphony" name="sitemesh" rev="2.4.2"/>
+		<dependency org="jstl" name="jstl" rev="1.1.2"/>
+		<dependency org="javax.servlet" name="standard" rev="1.1.2"/>
+		<!--dependency org="com.mocha" name="mocha-ui-web" rev="8.0.0" conf="runtime->default" /-->
+
+		<!-- bizsm begin -->
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-adapter" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-web" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-serializer" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-coremodel" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-dbtemplate" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-event-alert" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-statistic-api" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-statistic" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-mq" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-struts2restcomponent" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-bsmdelegate" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="flash-bizsm" rev="${revision}" conf="default" />
+		<!-- bizsm end -->
+    	<dependency org="com.mocha" name="mocha-ui-web" rev="8.0.0" conf="default" />
+	</dependencies>
+</ivy-module>

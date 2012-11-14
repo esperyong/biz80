@@ -1,0 +1,260 @@
+﻿<room id="demo_room_00001" name="拿铁集团中心机房">
+    <catalog id="demo_ups_00001" name="UPS" desc="">
+        <resource id="demo_no_00001" name="机房网络设备UPS" desc="">
+        	<metric id="demo_snmp-manufacturer" name="制造商" desc="制造商">
+                <basic>
+                    <property frequency="1min"/>
+                    <property type="info"/>
+                </basic>
+                <fetch>
+                    <property protocol="demo"/>
+                    <property data="Santak"/>
+                </fetch>
+                <process>
+                </process>
+            </metric>
+            <metric id="demo_snmp-model" name="型号" desc="型号">
+                <basic>
+                    <property frequency="1min"/>
+                    <property type="info"/>
+                </basic>
+                <fetch>
+                    <property protocol="demo"/>
+                    <property data="C6K"/>
+                </fetch>
+                <process>
+                </process>
+            </metric>
+            <metric id="demo_snmp_batteryvoltage" name="电池电压" desc="电池电压">
+                <basic>
+                    <property unit="V"/>
+                    <property type="analog_vol"/>
+                    <property minvalue="200"/>
+                    <property maxvalue="300"/>
+                    <property frequency="5min"/>
+                </basic>
+                <fetch>
+                    <property protocol="demo"/>
+                </fetch>
+                <process>
+                    <property key="random" min="180" max="300"/>
+                    <property key="int"/>
+                </process>
+            </metric>
+            <metric id="demo_snmp_batterycontain" name="电池剩余容量百分比" desc="电池剩余容量百分比">
+                <basic>
+                    <property unit="%"/>
+                    <property type="analog"/>
+                    <property minvalue="20"/>
+                    <property maxvalue="100"/>
+                    <property frequency="5min"/>
+                </basic>
+                <fetch>
+                    <property protocol="demo"/>
+                </fetch>
+                <process>
+                    <property key="random" min="60" max="90"/>
+                    <property key="int"/>
+                </process>
+            </metric>
+            <metric id="demo_mram_UPStemp" name="箱体内温度" desc="UPS箱体内温度">
+                <basic>
+                    <property unit="C"/>
+                    <property type="analog_temp"/>
+                    <property minvalue="10"/>
+                    <property maxvalue="50"/>
+                    <property frequency="1min"/>
+                </basic>
+                <fetch>
+                    <property protocol="demo"/>
+                </fetch>
+                <process>
+                    <property key="random" min="20" max="60"/>
+                    <property key="int"/>
+                </process>
+            </metric>
+            <metric id="demo_snmp_inputfrequency" name="输入频率" desc="输入频率">
+                <basic>
+                    <property unit="Hz"/>
+                    <property minvalue="40"/>
+                    <property maxvalue="60"/>
+                    <property frequency="1min"/>
+                    <property type="analog"/>
+                </basic>
+                <fetch>
+                    <property protocol="demo"/>
+                </fetch>
+                <process>
+                    <property key="random" min="40" max="70"/>
+                    <property key="int"/>
+                </process>
+            </metric>
+            <metric id="demo_snmp_inputvoltage" name="输入电压" desc="输入电压">
+                <basic>
+                    <property unit="V"/>
+                    <property minvalue="210"/>
+                    <property maxvalue="230"/>
+                    <property frequency="1min"/>
+                    <property type="analog_vol"/>
+                </basic>
+                <fetch>
+                    <property protocol="demo"/>
+                </fetch>
+                <process>
+                    <property key="random" min="200" max="250"/>
+                    <property key="int"/>
+                </process>
+            </metric>
+            <metric id="demo_snmp_outputvoltage" name="输出电压" desc="输出电压">
+                <basic>
+                    <property unit="V"/>
+                    <property minvalue="218"/>
+                    <property maxvalue="222"/>
+                    <property frequency="1min"/>
+                    <property type="analog_vol"/>
+                </basic>
+                <fetch>
+                    <property protocol="demo"/>
+                </fetch>
+                <process>
+                    <property key="random" min="220" max="230"/>
+                    <property key="int"/>
+                </process>
+            </metric>
+            <metric id="demo_snmp_outputLoad" name="输出负载" desc="输出负载">
+                <basic>
+                    <property unit="%"/>
+                    <property minvalue="10"/>
+                    <property maxvalue="20"/>
+                    <property frequency="1min"/>
+                    <property type="analog"/>
+                </basic>
+                <fetch>
+                   <property protocol="demo"/>
+                </fetch>
+                <process>
+                    <property key="random" min="10" max="20"/>
+                    <property key="int"/>
+                </process>
+            </metric>
+        </resource>
+    </catalog>
+    <metrics id="demo_tcp_00001" name="环境" desc="环境">
+        <metric id="demo_modbustcp_temp" name="温度(TCP-Modbus)" desc="以太网传感器检测温度">
+            <basic>
+                <property unit="C"/>
+                <property minvalue="16"/>
+                <property maxvalue="28"/>
+                <property frequency="1min"/>
+                <property type="analog_temp"/>
+            </basic>
+            <fetch>
+                <property protocol="demo"/>
+            </fetch>
+            <process>
+                <property key="random" min="10" max="40"/>
+                <property key="int"/>
+            </process>
+        </metric>
+        <metric id="demo_modbustcp_humi" name="湿度(TCP-Modbus)" desc="以太网传感器检测湿度">
+            <basic>
+                <property unit="%"/>
+                <property minvalue="30"/>
+                <property maxvalue="50"/>
+                <property frequency="1min"/>
+                <property type="analog_hum"/>
+            </basic>
+            <fetch>
+               <property protocol="demo"/>
+            </fetch>
+            <process>
+               <property key="random" min="30" max="80"/>
+               <property key="int"/>
+            </process>
+        </metric>
+        <metric id="demo_mram_temp" name="温度" desc="环境温度">
+            <basic>
+                <property unit="C"/>
+                <property minvalue="16"/>
+                <property maxvalue="28"/>
+                <property frequency="1min"/>
+                <property type="analog_temp"/>
+            </basic>
+            <fetch>
+               <property protocol="demo"/>
+            </fetch>
+            <process>
+                <property key="random" min="10" max="40"/>
+                <property key="int"/>
+            </process>
+        </metric>
+        <metric id="demo_mram_humi" name="湿度" desc="环境湿度">
+            <basic>
+                <property unit="%"/>
+                <property minvalue="30"/>
+                <property maxvalue="50"/>
+                <property frequency="1min"/>
+                <property type="analog_hum"/>
+            </basic>
+            <fetch>
+               <property protocol="demo"/>
+            </fetch>
+            <process>
+                <property key="random" min="30" max="80"/>
+                <property key="int"/>
+            </process>
+        </metric>
+        <metric id="demo_mram_elec" name="市电" desc="市电">
+            <basic>
+                <property frequency="1min"/>
+                <property type="digital_power"/>
+            </basic>
+            <fetch>
+               <property protocol="demo"/>
+            </fetch>
+            <process>
+                <property key="random" min="0" max="1"/>
+                <property key="int" value="round"/>
+            </process>
+        </metric>
+        <metric id="demo_mram_smoke" name="烟感" desc="烟感">
+            <basic>
+                <property frequency="1min"/>
+                <property type="digital_smoke"/>
+            </basic>
+            <fetch>
+                <property protocol="demo"/>
+            </fetch>
+            <process>
+                <property key="random" min="0" max="1"/>
+                <property key="int" value="round"/>
+            </process>
+        </metric>
+        <metric id="demo_mram_soak" name="浸水" desc="浸水">
+            <basic>
+                <property frequency="1min"/>
+                <property type="digital_water"/>
+            </basic>
+            <fetch>
+                <property protocol="demo"/>
+            </fetch>
+            <process>
+                <property key="random" min="0" max="1"/>
+                <property key="int" value="round"/>
+            </process>
+        </metric>
+        <metric id="demo_mram_door" name="门禁" desc="门禁">
+            <basic>
+                <property frequency="1min"/>
+                <property type="digital_door"/>
+            </basic>
+            <fetch>
+               <property protocol="demo"/>
+            </fetch>
+            <process>
+                <property key="random" min="0" max="1"/>
+                <property key="int" value="round"/>
+            </process>
+        </metric>
+    </metrics>
+</room>

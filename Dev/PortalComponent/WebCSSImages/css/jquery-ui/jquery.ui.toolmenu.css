@@ -1,0 +1,24 @@
+.menuRoot{ font-size:12px; margin:0; padding:0;}
+.div_RightMenu{ position:absolute; list-style:none;}
+.div_RightMenuDiv{background:#bbb;position:relative;}
+.div_RightMenuUl{position:relative;background:#fff; border:1px solid #999;left:-2px;top:-2px; margin:0; padding:1px 0;}
+.div_RightMenuUlLi{ list-style:none; margin:0 1px;padding:0;line-height:20px;height:20px;text-indent:25px;background-repeat:no-repeat;cursor:pointer;border-width:1px;border-style:solid;border-color:#fff;}
+
+.div_RightMenuUlLiRMli_1{background-position:0 0;}
+.div_RightMenuUlLiRMli_2{background-position:0 -20px;}
+.div_RightMenuUlLiRMli_3{background-position:0 -40px;}
+.div_RightMenuUlLiRMli_4{background-position:0 -60px;}
+.div_RightMenuUlLiRMli_5{background-position:0 -80px;}
+.div_RightMenuUlLiRMli_6{background-position:0 -100px;}
+.div_RightMenuUlLiRMli_7{background-position:0 -120px;}
+.div_RightMenuUlLiRMli_8{background-position:0 -140px;}
+.div_RightMenuUlLiRMli_9{background-position:0 -160px;}
+.div_RightMenuUlLiRMli_10{background-position:0 -180px;}
+.div_RightMenuUlLiRMli_11{background-position:0 -200px;}
+.div_RightMenuUlLiRMli_12{background-position:0 -220px;}
+.div_RightMenuUlLiRMli_13{background-position:0 -240px;}
+.div_RightMenuUlLiRMli_14{background-position:0 -260px;}
+.div_RightMenuUlLiRMli_15{background-position:0 -280px;}
+.div_RightMenuUlLiRMli_16{background-position:0 -300px;}
+
+.div_RightMenuULLIRM_mouseover{ background-color:#B6BDD2; border-color:#0A246A;}

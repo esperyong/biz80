@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.convention.default.parent.package" value="crud-default" />
+	<constant name="struts.convention.package.locators" value="action" />
+	<constant name="struts.convention.package.locators.basePackage" value="com.mocha.bsm.action" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<constant name="struts.multipart.maxSize" value="52428800"/>
+	<constant name="struts.convention.action.includeJars" value=".*/mocha-bsm-systemcomponent-web-8.0.0.*?jar(!/)?,.*/mocha-bsm-monitorsetting-web-8.0.0.*?jar(!/)?" />
+	<package name="crud-default" extends="convention-default">
+		<!--
+			基于paramsPrepareParamsStack, 增加store
+			interceptor保证actionMessage在redirect后不会丢失
+		-->
+		<interceptors>
+			<interceptor-stack name="crudStack">
+				<interceptor-ref name="store">
+					<param name="operationMode">AUTOMATIC</param>
+				</interceptor-ref>
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="crudStack" />
+
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+	</package>
+
+	<!-- 国际化文件的配置 -->
+	<constant name="struts.custom.i18n.resources"
+		value="i18n.common,i18n.discovery,i18n.profile,i18n.resourcedetail,i18n.event,i18n.room,i18n.notification,i18n.report,i18n.systemcomponent,i18n.location,i18n.auditlog,i18n.resourcemanage,i18n.wirelessaction,i18n.scriptmonitor,i18n.historyanalyse,i18n.component,i18n.licenseview,i18n.modeldeploy" />
+
+	<!-- 主题的配置 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	
+	<!-- 国际化重新加载 -->
+	<constant name="struts.i18n.reload" value="true"></constant>
+
+	<!--
+		使用Convention插件,实现约定大于配置的零配置文件风格. 特殊的Result路径在Action类中使用@Result设定.
+	-->
+
+	<!-- 每个模块的struts配置  -->
+
+	<!--  -->
+	<include file="roommonitor-struts.xml" />
+
+	<!-- 资源发现 -->
+	<include file="discovery-web-actions.xml" />
+
+	<!-- 策略-->
+	<include file="strategy-struts.xml" />
+
+	<include file="Monitor-List-struts.xml" />
+
+	<!-- 物理位置  -->
+	<include file="location-struts.xml" />
+
+	<!--  详细信息  -->
+	<include file="resourcedetail-struts.xml" />
+
+	<!-- 事件 -->
+	<include file="event-struts.xml" />
+	
+	<!-- 统计分析 -->
+	<include file="report-struts.xml" />
+	
+	<!-- 告警台 -->
+	<include file="notification-struts.xml" />
+	
+	<!-- 脚本监控 -->
+	<include file="scriptmonitor-struts.xml" />
+
+	<!-- 系统架构 -->
+	<include file="system-component-web-actions.xml"/>
+	
+	<!-- 资源管理 -->
+	<include file="resourcemanage-struts.xml"/>
+	
+	<!-- 首页&登录页 -->
+	<include file="home-struts.xml"/>
+	
+	<!-- action操作 -->
+	<include file="wireless-struts.xml"/>
+	
+	<!-- 资源选择组件 -->
+	<include file="businesscomponent-struts.xml"/>
+	
+	<!-- 告警事件压缩 -->
+	<include file="effecteresource-struts.xml"/>
+	
+	<!-- 软件许可 -->
+	<include file="licenseview-struts.xml"/>	
+	<!-- 模型配置 -->
+	<include file="modelsetting-struts.xml"/>	
+	<!-- portlet -->
+	<include file="portlet-struts.xml"/>
+</struts>

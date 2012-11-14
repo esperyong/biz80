@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+	<info organisation="com.mocha" module="mocha-ui-web" revision="${revision}"
+		status="integration" />
+	<configurations>
+		<conf name="default"/>
+		<conf name="runtime" extends="default"/>
+		<conf name="test" extends="default" visibility="public"/>
+		<conf name="optional" extends="default" visibility="public" description="contains all optional dependencies"/>
+	</configurations>
+	
+	<dependencies>
+
+	</dependencies>
+
+</ivy-module>

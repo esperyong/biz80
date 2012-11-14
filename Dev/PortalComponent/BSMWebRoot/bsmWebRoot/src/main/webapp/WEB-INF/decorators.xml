@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/decorators">
+	<!--decorator结点指定了模板的位置和文件名，通过pattern来指定哪些路径引用哪个模板 -->
+	<decorator name="popwindow" page="popwindow.jsp"></decorator>
+	<decorator name="headfoot" page="headfoot.jsp"></decorator>
+
+	<decorator name="indexgrid" page="gridPanel/index_grid.jsp" />
+	<decorator name="indexcirgrid" page="gridPanel/index_cirgrid.jsp" />
+	<decorator name="grid" page="gridPanel/grid.jsp" />
+	<decorator name="cirgrid" page="gridPanel/cirgrid.jsp" />
+	<decorator name="tools" page="tools.jsp" />
+	<decorator name="tabPanel" page="tabPanel/tabPanel.jsp" />
+
+	<decorator name="accordionPanel" page="accordionPanel/accordionPanel.jsp" />
+	<decorator name="accordionAddSubPanel" page="accordionPanel/accordionAddSubPanel.jsp" />
+	<decorator name="accordionLeftPanel" page="accordionPanel/leftAccordion.jsp" />
+	<decorator name="accordionInerPanel" page="accordionPanel/accordionInerPanel.jsp" />
+
+	<decorator name="blackpanel" page="toolpanel/blackPanel.jsp" />
+	<decorator name="colorPanel" page="toolpanel/colorpanel.jsp" />
+	<decorator name="linesizePanel" page="toolpanel/linesizepanel.jsp" />
+	<decorator name="linestylePanel" page="toolpanel/linestylepanel.jsp" />
+	<decorator name="fontsizepanel" page="toolpanel/fontsizepanel.jsp" />
+	<!-- 阈值显示 -->
+	<!-- 横向 -->
+	<decorator name="threshold_t" page="threshold/threshold_t.jsp" />
+	<!-- 纵向 -->
+	<decorator name="threshold_v" page="threshold/threshold_v.jsp" />
+
+
+
+	<!-- 监控设置下左侧小块的结构 -->
+	<decorator name="monitorsettingLeftPanel"
+		page="moduledecorator/monitorsetting/leftPanel.jsp" />
+	<!-- 资源管理下资源列表的结构 -->
+	<decorator name="resourceQueryPanel"
+		page="moduledecorator/resourcemgr/resourcemgrquery.jsp" />
+
+	<decorator name="componentlist"
+		page="moduledecorator/componentDeco/componentlist.jsp" />
+	<!-- 资源正在发现中 -->
+	<decorator name="resource-discovering"
+		page="moduledecorator/discovery/resource-discovering.jsp" />
+	
+	<!-- 首页portlet -->
+	<decorator name="portlet" page="portlet.jsp" />
+</decorators>

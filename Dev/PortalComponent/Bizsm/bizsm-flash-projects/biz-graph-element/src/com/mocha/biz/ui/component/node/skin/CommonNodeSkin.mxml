@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+TODO:s:Skin
+@author chendg
+@version 1.0
+@created 2010-9-21  下午01:29:07
+-->
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:cache="com.mocha.biz.common.cache.*">
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("com.mocha.biz.ui.component.node.CommonNode")]
+	</fx:Metadata>
+	
+	
+	<fx:Script>
+		<![CDATA[
+			override protected function updateDisplayList(w:Number, h:Number):void
+			{
+				super.updateDisplayList(w,h);
+//				trace("[text,w,h]=["+hostComponent.nodeText + "," + w + "," + h + "]");
+//				this.graphics.clear();
+//				this.graphics.beginFill(0xcccccc);
+//				this.graphics.drawRect(0,0,w,h);
+//				this.graphics.endFill();
+			}
+		]]>
+	</fx:Script>
+	
+	<!-- states -->
+	<s:states>
+		<s:State name="unselected"  stateGroups="unselectedStates"/>
+		<s:State name="unselectedAndRun" stateGroups="unselectedStates,runstates" />
+		<s:State name="selected" stateGroups="selectedStates" />
+		<s:State name="selectedAndRun" stateGroups="selectedStates,runstates" />
+	</s:states>
+	
+	<!-- layer 1: fill -->
+	<!--- @private -->
+	<s:Rect id="fill" left="1" right="1" top="1" bottom="1" includeIn="selectedStates">
+		<s:fill>
+			<s:SolidColor alpha.selectedStates="1"  alpha.unselectedStates="0.8"
+						  color.unselectedStates="0xffffff" color.selectedStates="0xcccccc"/>
+		</s:fill>
+	</s:Rect>
+	
+	<!-- layer 2: border -->
+	<!--- @private -->
+	<s:Rect id="selectBorder" left="0" right="0" top="0" bottom="0" includeIn="selectedStates">
+		<s:stroke>
+			<s:SolidColorStroke alpha.selectedStates="1" color.selectedStates="0xcccccc" weight.selectedStates="1"/>
+		</s:stroke>
+	</s:Rect>
+	
+	<!--<s:VGroup id="contentGroup" gap="5" left="0" right="0" top="0" bottom="0" verticalAlign="middle" width="100%">-->
+		<s:Group  width="100%" id="contentGroup" top="5" left="0" right="0" bottom="15">
+			<cache:ImageCache  id="nodeImg" left="3" right="3" top="0" bottom="3" maintainAspectRatio="true"  source="{hostComponent.nodeImgUrl}">
+				
+			</cache:ImageCache>
+			<!--<mx:Image id="nodeImg" left="3" right="3" top="0" bottom="3" maintainAspectRatio="true"  source="{hostComponent.nodeImgUrl}"/>-->
+			<cache:ImageCache id="stateImg"  bottom="0" right="{(contentGroup.width-nodeImg.width)/2}" source="{hostComponent.statusImgUrl}"
+					   includeIn="runstates"/>
+		</s:Group>
+	<!--</s:VGroup>-->
+	<s:Label id="labelDisplay"  textAlign="center" width="80" text="{hostComponent.nodeText}"
+			 verticalAlign="middle" showTruncationTip="true"
+			 maxDisplayedLines="1"  color="0xffffff"
+			 horizontalCenter="0"
+			 left="0" right="0" bottom="3"/>
+	
+	<!-- SkinParts
+	name=nodeImg, type=mx.controls.Image, required=false
+	name=labelDisplay, type=spark.components.supportClasses.TextBase, required=false
+	name=stateImg, type=mx.controls.Image, required=false
+	-->
+</s:Skin>

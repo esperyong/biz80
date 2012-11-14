@@ -1,0 +1,11 @@
+
+<bsm-module>
+     
+    <deploy-path type="war">
+    	<path value="${portal}\common\classes">
+		
+		<src-map src="i18n" dest="classes\i18n" />
+		</path>
+    </deploy-path>
+	 
+</bsm-module>

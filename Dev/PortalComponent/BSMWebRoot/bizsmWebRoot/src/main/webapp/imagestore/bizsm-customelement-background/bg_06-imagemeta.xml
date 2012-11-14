@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>folderid:[bizsm-customelement-background],imageId:[bg_06]</comment>
+<entry key="ContentType">image/png</entry>
+<entry key="imageName">背景6</entry>
+<entry key="imageFileName">bg_06</entry>
+<entry key="order">6</entry>
+</properties>

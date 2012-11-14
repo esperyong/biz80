@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="crud-default" location="10,10" size="170,70" />
+  <include file="roommonitor-struts.xml" location="20,170" size="150,30" />
+  <include file="discovery-web-actions.xml" location="20,275" size="150,30" />
+</Struts2Diagram>
+

@@ -1,0 +1,27 @@
+
+<bsm-module>
+     
+    <deploy-path type="war">
+    	<path value="${portal}\webapps\pureportal">
+
+		<src-map src="src\main\webapp" dest="pureportal" />
+		<src-map src="src\main\resources" dest="pureportal" />		
+		</path>
+		
+		<path value="${portal}\webapps\mochaadmin">
+
+		<src-map src="src\main\webapp" dest="mochaadmin" />
+		<src-map src="src\main\resources" dest="mochaadmin" />		
+		</path>
+		
+		
+		
+		<path value="${portal}\webapps\bizsmweb">
+
+		<src-map src="src\main\resources\images\uicomponent" dest="bizsmweb\images\uicomponent" />		
+		<src-map src="src\main\resources\css\UIComponent.css" dest="bizsmweb\css\UIComponent.css" />		
+		</path>
+		
+    </deploy-path>
+	 
+</bsm-module>

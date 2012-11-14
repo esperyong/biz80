@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>folderid:[bizsm-customelement-baseshape-icon],imageId:[88634420542006616281103020926141299029174859]</comment>
+<entry key="ContentType">image/png</entry>
+<entry key="imageName">直线</entry>
+<entry key="imageFileName">imagePNG</entry>
+<entry key="shapeType">line</entry>
+</properties>

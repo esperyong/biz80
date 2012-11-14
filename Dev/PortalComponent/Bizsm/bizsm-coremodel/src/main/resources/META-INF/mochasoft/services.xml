@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- ========================= GENERAL DEFINITIONS ========================= -->
+	
+	<bean id="bizsm.bizServiceManager" class="com.mocha.bsm.bizsm.core.service.BizServiceManager">
+		<property name="dbtemplate" ref="db4oTemplateMultiConn"/>
+	</bean>	
+	
+	<bean id="bizsm.bizUserManager" class="com.mocha.bsm.bizsm.core.service.BizUserManager">
+		<property name="dbtemplate" ref="db4oTemplateMultiConn"/>
+	</bean>
+				
+	<bean id="bizsm.bizTopoManager" class="com.mocha.bsm.bizsm.core.service.BizTopologyGraphManager">
+		<property name="dbtemplate" ref="db4oTemplateMultiConn"/>
+	</bean>
+	
+	
+	<bean id="bizsm.confStateCalManager" class="com.mocha.bsm.bizsm.core.service.ConfStateCalManager">
+		<property name="dbtemplate" ref="db4oTemplateMultiConn"/>
+		<property name="bizServiceManager" ref="bizsm.bizServiceManager"/>
+	</bean>	
+	
+	<bean id="bizsm.bizServiceStateCalJob" class="com.mocha.bsm.bizsm.core.service.BizServiceStateCalJob">
+		<property name="dbtemplate" ref="db4oTemplateMultiConn"/>
+		<property name="bsmAdapter" ref="bizsm.resmodeladapter"/>
+	</bean>
+	
+	<bean id="scheduled.bizsm.bizServiceStateCalJob" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+		<property name="timerTask" ref="bizsm.bizServiceStateCalJob" />
+		<property name="period" value="60000" />
+		<property name="delay" value="300000" />
+	</bean>
+	
+	<bean class="org.springframework.scheduling.timer.TimerFactoryBean">
+		<property name="scheduledTimerTasks">
+			<list>
+				<ref bean="scheduled.bizsm.bizServiceStateCalJob"/>
+			</list>
+		</property>
+    </bean>
+	
+	<bean id="bizsm.bizServiceStatePublisher" class="com.mocha.bsm.bizsm.core.service.BizServiceStatePublisher">
+		<property name="jmsTemplate" ref="jmsTemplate"/>
+	</bean>	
+	
+</beans>

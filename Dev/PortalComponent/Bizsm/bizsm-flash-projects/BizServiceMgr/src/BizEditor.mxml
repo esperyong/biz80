@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+TODO:
+@author chendg
+@version 1.0
+@created 2010-9-25  下午03:38:29
+-->
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:component="com.mocha.biz.component.*"
+			   xmlns:ui="com.mocha.biz.common.ui.*" backgroundColor="0x000000"
+			   initialize="initializeHandler(event)" creationComplete="creationCompleteHandler(event)"
+			   >
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		@namespace mx "library://ns.adobe.com/flex/mx";
+		@namespace component "com.mocha.biz.component.*";
+		@namespace ui "com.mocha.biz.common.ui.*";
+	</fx:Style>
+	<fx:Script>
+		<![CDATA[
+			import com.mocha.biz.business.responder.FullBizServiceResponder;
+			import com.mocha.biz.model.GraphLocator;
+			import com.mocha.biz.util.BizEditorUtil;
+			import com.mocha.biz.util.CallFlash;
+			import com.mocha.biz.util.CallJS;
+			import com.mocha.common.business.remote.RemoteBean;
+			import com.mocha.common.business.remote.RemoteService;
+			import com.mocha.common.business.responder.BaseResponder;
+			
+			import mx.events.FlexEvent;
+			import mx.logging.ILogger;
+			import mx.logging.Log;
+			
+
+			private static var log:ILogger = Log.getLogger("BizService");
+			protected function initializeHandler(event:FlexEvent):void
+			{
+				CallFlash.initCallBack();
+				BizEditorUtil.logStart();
+				initParams();
+				GraphLocator.getInstance().initGraphData();
+			}
+			
+			private function initParams():void
+			{
+				var webRootPath:String = this.parameters["webRootPath"];
+				if(!webRootPath){
+					log.warn("input parameter webRootPath is null!");
+					return;
+				}
+				log.info("parameters[webRootPath={0}]",webRootPath);
+				GraphLocator.getInstance().webRootPath = webRootPath;
+			}
+			
+			private function openFullBizService():void
+			{
+				var uri:String = this.parameters["uri"];
+				if(!uri){
+					log.warn("input parameter uri is null!");
+					GraphLocator.getInstance().initGraphData();
+					CallJS.loadTopoDataComplete();
+					return;
+				}
+				
+				var bean:RemoteBean = new RemoteBean();
+				bean.url = uri;
+				
+				bean.header = {uri:uri};
+				bean.resultFormat = "xml";
+				
+				var responder:BaseResponder = new FullBizServiceResponder();
+				responder.header = bean.header;
+				bean.responder = responder;
+				
+				RemoteService.remoteHttpService(bean);
+				
+			}
+
+
+			protected function creationCompleteHandler(event:FlexEvent):void
+			{
+				openFullBizService();
+				CallJS.initTopoFlashComplete();
+//				HorizontalLayout(panel.controlBarLayout).horizontalAlign = "right";
+			}
+			
+			
+
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<!--<radar:RadarList id="radar" width="491" height="494" 
+					 pointerImgWidth="438" pointerImgHeight="437"/>-->
+	<component:MainEditor width="100%" height="100%"/>
+	<!--<ui:EnhancePanel x="48" y="60" width="250" height="200" id="panel" title="ddafeafe">
+		<ui:controlBarContent>
+			<fx:Array>
+				<s:Button  label="按钮"/>
+				<s:Button  label="按钮"/>
+			</fx:Array>
+		</ui:controlBarContent>
+		
+	</ui:EnhancePanel>-->
+</s:Application>

@@ -1,0 +1,11 @@
+
+<bsm-module>
+     
+    <deploy-path type="war">
+    	<path value="${portal}\webapps\bsmitom">
+		<src-map src="src\main\webapp" dest="bsmitom" />
+		<src-map src="src\main\resources" dest="bsmitom\WEB-INF\classes" />		
+		</path>
+    </deploy-path>
+	 
+</bsm-module>

@@ -1,0 +1,90 @@
+<html>
+<head>
+<public:component tagname="bt">
+<public:attach event="oncontentready" onevent="sninit()"/>
+<public:attach event="onmouseover" onevent="bt_glow()"/>
+<public:attach event="onmouseout" onevent="bt_stop_glow()"/>
+<public:method name="btpress"/>
+<public:property name="height"/>
+<public:property name="width"/>
+<public:property name="color"/>
+<public:property name="fontsize"/>
+</public:component>
+<title>bt</title>
+<style>
+</style>
+<script language="JavaScript">
+var timeout1=null;
+var timeout2=null;
+var al=50;
+var fcolor=6;
+/////////////////////////////////////////////////////////////////////////////
+function sninit(){
+	defaults.viewLink=document;//can see by other
+	var hei,wid,inner,fs;
+	inner=element.innerText;
+	fs=14;
+	if(element.fontsize!=null) fs=element.fontsize;
+ 
+	hei=30;
+	wid=48+(inner.length)*14;
+	if(element.height!=null) hei=element.height;
+	if(element.width!=null) wid=element.width;
+
+	bt_bg.style.height=hei;
+	bt_bg.style.width=wid;
+
+	bt_color.style.height=hei-2;
+	bt_color.style.width=wid-2;
+	if(element.color!=null) bt_color.style.background=element.color;
+
+	bt_text.style.fontSize=fs;
+	bt_text.style.height=hei;
+	bt_text.style.width=wid;
+	bt_text.style.top=(hei/2-(fs/2));
+	bt_text.innerText=inner;
+}
+/////////////////////////////////////////////////////////////////////////////
+function bt_glow(){
+	al+=10;
+	fcolor--;
+	bt_bg.style.filter="Alpha(Opacity="+al+")";
+	bt_text.style.color="#"+fcolor+fcolor+fcolor+fcolor+fcolor+fcolor;
+	if(al>=100) {clearTimeout(timeout1);timeout1=null;return;}
+	timeout1=setTimeout(bt_glow,50);
+}
+/////////////////////////////////////////////////////////////////////////////
+function bt_stop_glow(){
+	if(timeout1!=null){clearTimeout(timeout1);timeout1=null;}
+	al=al-10;
+	fcolor++;
+	bt_bg.style.filter="Alpha(Opacity="+al+")";
+	bt_text.style.color="#"+fcolor+fcolor+fcolor+fcolor+fcolor+fcolor;
+	if(al<=50) {clearTimeout(timeout2);timeout2=null;return;}
+	timeout2=setTimeout(bt_stop_glow,100);
+}
+
+/////////////////////////////////////////////////////////////////////////////
+function bt_click(){
+	clearTimeout(timeout1);timeout1=null;
+	bt_text.style.color="#ff8300";
+	bt_bg.style.filter="Alpha(Opacity=100)";
+}
+function bt_up(){
+	bt_text.style.color="#666666";
+	bt_bg.style.filter="Alpha(Opacity=50)";
+}
+function btpress(i){
+    bt_color.style.background = i ? "#77FF77" : "#FFFFFF";
+    bt_bg.style.filter="Alpha(Opacity=80)";
+}
+</script>
+
+</head>
+
+<body onMouseDown="bt_click()" onMouseUp="bt_up()" style="cursor:auto" onmouseover="this.style.cursor='hand'" onmouseout="this.style.cursor='auto'" onselectstart="return false">
+<img id="bt_bg" src="bt.gif" border="0" style="height:0;width:0;filter: Alpha(Opacity=50);">
+<div id="bt_color" style="position:absolute; left: 1; top: 1;width:0;height:0;z-index:1;background:#;filter: Alpha(Opacity=15);"></div>
+<div id="bt_text" style="position:absolute; left: 0; top: 0;width:0;height:0;z-index:1;color:#666666;font-size:16px;text-align:center;"></div>
+</body>
+</html>

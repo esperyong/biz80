@@ -1,0 +1,103 @@
+<BizTopologyGraph>
+  <topoId>s-83064468802442683561011010613281288606408453</topoId>
+  <uri>/biztopo/s-83064468802442683561011010613281288606408453</uri>
+  <BizService>
+    <uri>/bizservice/s58402404285535226391011010613281288606408421</uri>
+    <bizId>s58402404285535226391011010613281288606408421</bizId>
+    <name>BTV 测试3</name>
+    <reflectFactor>0</reflectFactor>
+    <ResponsiblePerson>
+      <id>s18967921283679625021011010613281288606408421</id>
+    </ResponsiblePerson>
+    <createDate>2010-11-01 18:13:28.421 CST</createDate>
+    <lastUpdateDate>2010-11-01 18:13:28.421 CST</lastUpdateDate>
+    <belongDomainIds>
+      <null>bj</null>
+      <string>sh</string>
+      <string>tj</string>
+    </belongDomainIds>
+    <childBizServices>
+      <null/>
+    </childBizServices>
+    <monitableResources/>
+    <bizUsers>
+      <BizUser>
+        <name>单位2</name>
+        <id>s49248637588535669141011010610421288606242781</id>
+        <uri>/bizuser/s49248637588535669141011010610421288606242781</uri>
+        <ips class="tree-set">
+          <no-comparator/>
+        </ips>
+        <vlsms class="tree-set">
+          <no-comparator/>
+        </vlsms>
+      </BizUser>
+      <BizUser>
+        <name>单位1</name>
+        <id>s77943308364475402441011010610381288606238109</id>
+        <uri>/bizuser/s77943308364475402441011010610381288606238109</uri>
+        <ips class="tree-set">
+          <no-comparator/>
+        </ips>
+        <vlsms class="tree-set">
+          <no-comparator/>
+        </vlsms>
+      </BizUser>
+    </bizUsers>
+  </BizService>
+  <GraphInfo>
+    <Info><![CDATA[
+<peony version="1.0">
+  <graph>
+    <node id="6DFD5698-2E2B-ED63-121F-06EA6A045611" className="com.mocha.biz.ui.component.node.CommonNode" x="555" y="61.05" width="61" height="73">
+      <property key="nodeType">bizservice</property>
+      <property key="relationId">/bizservice/s90657607993534635211011010613071288606387140</property>
+      <property key="nodeVO">{"nodeImg":"./assets/images/flow.png","relationId":"/bizservice/s90657607993534635211011010613071288606387140","nodeText":"BTV test","statusImg":"./assets/images/lv.gif","nodeType":"bizservice","isRunning":false}</property>
+    </node>
+    <node id="73B078F1-76D5-59B3-B59E-06EA7AE485B4" className="com.mocha.biz.ui.component.node.CommonNode" x="425" y="205.95" width="61" height="73">
+      <property key="nodeType">bizuser</property>
+      <property key="relationId">/bizuser/s77943308364475402441011010610381288606238109</property>
+      <property key="nodeVO">{"nodeImg":"./assets/images/bizuser.png","relationId":"/bizuser/s77943308364475402441011010610381288606238109","nodeText":"单位1","statusImg":"./assets/images/lv.gif","nodeType":"bizuser","isRunning":false}</property>
+    </node>
+    <edge id="BizEditor.ApplicationSkin2._ApplicationSkin_Group1.contentGroup.MainEditor5.main.ContentRoot9.PolyLine98" className="com.mocha.peony.core.component.edge.PolyLine" pathData="S 585.5 97.55 L 631.5 148 V 97 L 455.5 242.45 Z" source="6DFD5698-2E2B-ED63-121F-06EA6A045611" target="73B078F1-76D5-59B3-B59E-06EA7AE485B4">
+      <property key="lineWeight">2</property>
+      <property key="lineAlpha">1</property>
+      <property key="wireFrameWeight">1</property>
+      <property key="lineColor">16382457</property>
+      <property key="wireFrameColor">0</property>
+      <property key="wireFrameAlpha">1</property>
+      <property key="directed">true</property>
+      <property key="cornerRadiusMax">10</property>
+      <property key="cornerRadiusMin">2</property>
+      <property key="cornerRadiusRatio">0.1</property>
+      <property key="filleted">false</property>
+      <property key="showWireFrame">false</property>
+      <property key="pathData">S 585.5 97.55 L 631.5 148 V 97 L 455.5 242.45 Z</property>
+    </edge>
+    <node id="E5533DC9-CF91-EFD1-E938-06EA8E03F586" className="com.mocha.biz.ui.component.node.CommonNode" x="705.05" y="239" width="61" height="73">
+      <property key="nodeType">bizuser</property>
+      <property key="relationId">/bizuser/s49248637588535669141011010610421288606242781</property>
+      <property key="nodeVO">{"nodeImg":"./assets/images/bizuser.png","relationId":"/bizuser/s49248637588535669141011010610421288606242781","nodeText":"单位2","statusImg":"./assets/images/lv.gif","nodeType":"bizuser","isRunning":false}</property>
+    </node>
+    <edge id="BizEditor.ApplicationSkin2._ApplicationSkin_Group1.contentGroup.MainEditor5.main.ContentRoot9.PolyLine112" className="com.mocha.peony.core.component.edge.PolyLine" pathData="S 455.5 242.45 H 138.25 V -89.44999999999999 L 735.55 275.5 Z" source="73B078F1-76D5-59B3-B59E-06EA7AE485B4" target="E5533DC9-CF91-EFD1-E938-06EA8E03F586">
+      <property key="lineWeight">2</property>
+      <property key="lineAlpha">1</property>
+      <property key="wireFrameWeight">1</property>
+      <property key="lineColor">16382457</property>
+      <property key="wireFrameColor">0</property>
+      <property key="wireFrameAlpha">1</property>
+      <property key="directed">true</property>
+      <property key="cornerRadiusMax">10</property>
+      <property key="cornerRadiusMin">2</property>
+      <property key="cornerRadiusRatio">0.1</property>
+      <property key="filleted">false</property>
+      <property key="showWireFrame">false</property>
+      <property key="pathData">S 455.5 242.45 H 138.25 V -89.44999999999999 L 735.55 275.5 Z</property>
+    </edge>
+  </graph>
+  <dataBindings/>
+</peony>
+
+		]]></Info>
+  </GraphInfo>
+</BizTopologyGraph>

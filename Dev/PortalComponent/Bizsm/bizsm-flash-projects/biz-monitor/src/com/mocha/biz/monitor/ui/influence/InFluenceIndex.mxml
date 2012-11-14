@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+TODO:s:Group
+@author chendg
+@version 1.0
+@created 2010-11-4  下午01:44:40
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx">
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	<s:Rect left="0" top="0" right="0" bottom="0">
+		<s:fill>
+			<s:SolidColor color="0xcccccc" alpha="0.5"/>
+		</s:fill>
+	</s:Rect>
+	<s:Group left="0" top="0" right="0" bottom="0">
+		<s:layout>
+			<s:VerticalLayout horizontalAlign="center" verticalAlign="middle"/>
+		</s:layout>
+		<mx:Image source="./assets/images/yxywdw.png"/>
+	</s:Group>
+</s:Group>

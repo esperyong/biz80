@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>folderid:[bizsm-customelement-baseshape],imageId:[polyline]</comment>
+<entry key="ContentType">application/x-shockwave-flash</entry>
+<entry key="imageName">肘型线</entry>
+<entry key="imageFileName">polyline</entry>
+<entry key="shapeType">polyLine</entry>
+</properties>

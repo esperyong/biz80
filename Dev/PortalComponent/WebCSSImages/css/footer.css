@@ -1,0 +1,98 @@
+/* CSS Document by zhangyu */
+/*footer copyright*/
+.foot-state{ width:25px; height:27px; cursor:pointer; position:absolute;top:10px;left:10px; }
+#footer{ height:55px; width:59px; background:url(../images/foot-left-bg.png) left top no-repeat; position:relative;}
+#footer.footer-gray{background:url(../images/foot-left-bg.png) left -55px no-repeat; cursor:default;}
+#footer.footer-notool{background:url(../images/foot-left-bg.png) left -110px no-repeat;}
+#foot-tool-group{padding-right:15px;height:27px;position:absolute; top:0;left:55px;}
+#foot-tool{ height:27px; background:url(../images/home-lateral.gif) 0 -293px repeat-x ;}
+#foot-tool-fillet{ background:url(../images/foot-tool-fillet.png) right 0 no-repeat; padding-right:14px; height:27px;}
+#foot-tool ul{ float:left; zoom:1; height:27px; padding-right:3px;background:url(../images/ico/foot-tool-line.gif) right 6px no-repeat; overflow:hidden;zoom:1;}
+#foot-tool ul.last{background:none}
+#foot-tool ul li{ float:left; margin:6px 5px 3px; position:relative; overflow:hidden; zoom:1; display:block;*display:inline;}
+#foot-tool ul li a{ background:url(../images/ico/foot-tool-ico.gif) 0 0 no-repeat; width:18px; height:18px; display:block; cursor:pointer; text-indent:-9999px}
+#foot-tool ul li.textarea a{ background-position:0 0}
+#foot-tool ul li.textarea-off a{ background-position:0 -18px }
+#foot-tool ul li.textarea-on a { background:url(../images/ico/foot-tool-ico-on.gif) no-repeat 0 0; height:18px; width:19px;}
+#foot-tool ul li.full-screen a{background-position:-18px 0}
+#foot-tool ul li.abbreviative a{background-position:-36px 0}
+#foot-tool ul li.repeal a{background-position:-54px 0}
+#foot-tool ul li.repeal-off a{background-position:-54px -18px; cursor:default;}
+
+#foot-tool ul li.resume a{background-position:-72px 0}
+#foot-tool ul li.resume-off a{background-position:-72px -18px; cursor:default;}
+
+#foot-tool ul li.fit-window a{background-position:-90px 0}
+#foot-tool ul li.natural-size a{background-position:-108px 0}
+#foot-tool ul li.font-size a{ width:25px; height:16px; background:url(../images/ico/font-size.gif) 0 0 no-repeat;text-indent:2px; font-size:9px; line-height:20px; overflow:hidden;}
+#foot-tool ul li.font-size-off a{ width:25px; height:16px; background:url(../images/ico/font-size.gif) 0 -16px; no-repeat;text-indent:2px; font-size:9px; line-height:20px; overflow:hidden; cursor:default;}
+#foot-tool ul li.font-size a span{ font-size:9px;}
+
+#foot-tool ul li.font-color a{background-position:-440px 0;}
+#foot-tool ul li.font-color-off a{background-position:-440px -18px; cursor:default;}
+
+#foot-tool ul li.node-color a{background-position:-458px 0}
+#foot-tool ul li.node-color-off a{background-position:-458px -18px; cursor:default;}
+
+#foot-tool ul li.bg-color a{background-position:-180px 0}
+#foot-tool ul li.bg-color-off a{background-position:-180px -18px}
+
+#foot-tool ul li.line-color a{background-position:-198px 0}
+#foot-tool ul li.line-color-off a{background-position:-198px -18px; cursor:default;}
+
+#foot-tool ul li.line-weight a{background-position:-216px 0}
+#foot-tool ul li.line-weight-off a{background-position:-216px -18px; cursor:default;}
+
+#foot-tool ul li.line-style a{background-position:-234px 0}
+#foot-tool ul li.line-style-off a{background-position:-234px -18px; cursor:default;}
+
+#foot-tool ul li.update a{background-position:-252px 0}
+#foot-tool ul li.save a{background-position:-270px 0}
+#foot-tool ul li.save-off a{background-position:-270px -18px; cursor:default;}
+
+#foot-tool ul li.delete a{background-position:-288px 0}
+#foot-tool ul li.delete-off a{background-position:-288px -18px; cursor:default;}
+
+#foot-tool ul li.single a{ background-position:-306px 0}
+#foot-tool ul li.single-off a{ background-position:-306px -18px;cursor: default;}
+
+#foot-tool ul li.all a{ background-position:-324px 0}
+#foot-tool ul li.all-off a{ background-position:-324px -18px;cursor: default;}
+
+#foot-tool ul li.mouse a{ background-position:-342px 0}
+#foot-tool ul li.mouse-off a{ background-position:-342px -18px;cursor: default;}
+
+#foot-tool ul li.mouse a{ background-position:-342px 0}
+#foot-tool ul li.mouse-off a{ background-position:-342px -18px;cursor: default;}
+
+#foot-tool ul li.zoom-in a{ background-position:-360px 0}
+#foot-tool ul li.zoom-in-off a{ background-position:-360px -18px;cursor: default;}
+
+#foot-tool ul li.zoom-out a{ background-position:-378px 0}
+#foot-tool ul li.zoom-out-off a{ background-position:-378px -18px;cursor: default;}
+
+#foot-tool ul li .colorpart{ width:16px; height:4px; display:block; position:absolute; top:14px;left:2px; font-size:0px;}
+
+#foot-stat{clear:both;background:url(../images/home-lateral.gif) 0 -320px repeat-x;padding:5px 3px; vertical-align:middle; color:#FFF; height:19px;;line-height:18px; overflow:hidden; position:absolute;top:25px;left:55px; width:1280px;}
+#foot-stat span{margin-right:3px; margin-left:3px; _vertical-align:baseline;_zoom:1;}
+#foot-stat span a{ text-decoration:underline; color:#FFF;_position:relative;_margin-top:-3px;}
+#foot-stat span.allres{ display:inline-block; *display:inline;zoom:1; background:url(../images/ico/allres.gif) 0 0 no-repeat; cursor:pointer; width:73px; height:16px; color:#68717D; line-height:18px; overflow:hidden; text-indent:0.7em;_position:relative;_margin-top:-2px;color:000;}
+#foot-stat span div.ico-select{ width:16px; height:16px; background:url(../images/ico/arrow-select.gif) 0 0 no-repeat;display:inline-block; *display:inline;zoom:1;  margin-left:3px; cursor:pointer;}
+
+#foot-tool ul li.font-border a{background-position:right 0; width:25px;}
+#foot-tool ul li.font-border-off a{background-position:right -19px; width:25px;}
+
+#foot-tool ul li.font-border a{ background-position:-402px 0; width:25px;}
+#foot-tool ul li.font-border-off a{ background-position:-402px -18px;cursor: default;}
+
+#foot-tool ul li.font-bold a{ background-position:-425px 0;}
+#foot-tool ul li.font-bold-off a{ background-position:-425px -18px;cursor: default;}
+
+#foot-tool ul li.font-bold-on a{ background-position:-425px -36px;}
+#foot-tool ul li.font-bold-on-off a{ background-position:-425px -18px;cursor: default;}
+
+#foot-tool ul li.foot-arrow a{ background-position:-515px 0px;}
+#foot-tool ul li.foot-arrow-off a{ background-position:-515px -18px;cursor: default;}
+
+#foot-tool ul li.foot-click a{ background-position:-534px 0px;}
+#foot-tool ul li.foot-click-off a{ background-position:-534px -20px;cursor: default;}

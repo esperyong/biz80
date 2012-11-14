@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+    <info
+        organisation="com.bsm"
+        module="bsm-pureportal-war"
+        revision="${revision}"
+        status="integration">
+	</info>
+	<configurations>
+		<conf name="default" visibility="public"/>
+		<conf name="runtime" extends="default"/>
+		<conf name="optional" extends="default" visibility="public" description="contains all optional dependencies"/>
+		<conf name="test" extends="default" visibility="private"/>
+	</configurations>
+	
+	<dependencies>
+		<dependency org="javax.servlet" name="servlet-api" rev="2.4" conf="runtime->default"/>
+		<dependency org="com.mocha" name="mocha-common-extension" rev="${revision}" conf="default;optional->optional" />
+		
+		<dependency org="com.mocha" name="mocha-ui-web" rev="8.0.0" conf="runtime->default" />
+		
+		<!--
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-web" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-serializer" rev="${revision}" conf="default" />
+		<dependency org="com.mocha" name="mocha-bsm-bizsm-annotation" rev="${revision}" conf="default" />
+		<dependency org="com.db4o" name="com.springsource.com.db4o.java5" rev="7.12.126.14142" conf="default"/>
+    	-->
+    	
+		
+		<!-- Modules -->
+		
+		
+		
+		 	
+<!--    	<dependency org="com.mocha" name="mocha-bsm-resourcediscovery-web" rev="${revision}" conf="default" />-->
+	</dependencies>
+</ivy-module>

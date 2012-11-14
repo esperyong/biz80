@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>folderid:[bizsm-customelement-baseshape],imageId:[-56374211562615218841103020924201299029060812]</comment>
+<entry key="ContentType">application/x-shockwave-flash</entry>
+<entry key="imageName">圆角矩形</entry>
+<entry key="imageFileName">圆角矩形.swf</entry>
+<entry key="shapeType">rRect</entry>
+</properties>

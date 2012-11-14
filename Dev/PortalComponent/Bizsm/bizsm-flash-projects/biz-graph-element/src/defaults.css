@@ -1,0 +1,16 @@
+@namespace bizCom "com.mocha.biz.ui.component.node.*";
+/**
+//请参考文档
+//http://help.adobe.com/en_US/flex/using/WS2db454920e96a9e51e63e3d11c0bf69084-7f85.html#WS2db454920e96a9e51e63e3d11c0bf69084-7e8c
+//
+*/
+
+/*
+//------------------------------
+//  OctopusMarquee
+//------------------------------
+*/
+bizCom|CommonNode
+{
+	skinClass: ClassReference("com.mocha.biz.ui.component.node.skin.CommonNodeSkin");	
+}

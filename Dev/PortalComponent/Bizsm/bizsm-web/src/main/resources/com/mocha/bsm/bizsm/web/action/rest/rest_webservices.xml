@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="bizserviceWebServices" namespace="/" extends="rest-default">   
+    	<!-- uri: /bizservice/ Get 得到所有的业务服务 -->
+    	<!-- uri: /bizservice/{id} Get 得到某一个业务服务 -->
+		<action name="bizservice/*" class="bizsm.bizServiceResource">
+			<param name="id">{0}</param>
+			<result name="createNewSub" type="errorXml" />
+			<result name="createOrUpdateInput" type="errorXml" />
+			<result name="listBizService">/WEB-INF/content/bizsm/bizdefine/listBizService.jsp</result>
+		</action>
+		
+		<action name="bizuser/*" class="bizsm.bizUserResource">
+			<param name="id">{0}</param>
+			<result name="listBizUser">/WEB-INF/content/bizsm/bizdefine/listBizUser.jsp</result>
+			<result name="createNewSub" type="errorXml" />
+			<result name="createOrUpdateInput" type="errorXml" />
+		</action>
+		
+		<action name="image/*" class="bizsm.imageResource">
+			<param name="id">{0}</param>
+			<result name="viewImage" type="stream">
+		   		<param name="contentType">${imageFileContentType}</param>
+		   		<param name="inputName">imageStream</param>
+		   		<param name="bufferSize">1024</param>
+		    </result>
+		    <result name="listImage">/WEB-INF/content/bizsm/bizdefine/listImage.jsp</result>
+		    <result name="createNewSub" type="errorXml" />
+		    <result name="createOrUpdateInput" type="errorXml" />
+		</action>
+		
+		<action name="biztopo/*" class="bizsm.bizTopoGraphResource">
+			<param name="id">{0}</param>
+			<result name="createNewSub" type="errorXml" />
+			<result name="createOrUpdateInput" type="errorXml" />			
+		</action>
+		
+		<action name="bizservice-confstatecal/*" class="bizsm.bizServiceConfStateCal">
+			<param name="id">{0}</param>
+			<result name="createNewSub" type="errorXml" />
+			<result name="createOrUpdateInput" type="errorXml" />
+		</action>		
+		
+     </package>
+     
+</struts>

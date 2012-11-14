@@ -1,0 +1,133 @@
+package cn.com.mochasoft.bsm.location.commands
+{
+	import cn.com.mochasoft.bsm.location.MainEdit;
+	import cn.com.mochasoft.bsm.location.component.LocationNode;
+	import cn.com.mochasoft.bsm.location.events.MainEvent;
+	import cn.com.mochasoft.bsm.location.model.LocationModel;
+	
+	import com.adobe.cairngorm.commands.ICommand;
+	import com.adobe.cairngorm.control.CairngormEvent;
+	import com.mocha.peony.core.component.IComponent;
+	import com.mocha.peony.core.component.edge.PolyLine;
+	
+	import flash.utils.getQualifiedClassName;
+	
+	import mx.collections.ArrayCollection;
+	import mx.rpc.http.HTTPService;
+	
+	public class DataSaveCommands implements ICommand
+	{
+		private var mainEdit:MainEdit;
+		private var model:LocationModel=LocationModel.getInstance();
+		private var array:Object=new Object();
+		
+		public function DataSaveCommands()
+		{
+		}
+		
+		public function execute(event:CairngormEvent):void
+		{
+			mainEdit=MainEvent(event).mainEdit;
+			this.mainEdit.main.content;
+			//visit(this.mainEdit.main.content);
+			var xml:XML=<data></data>;
+			saveNodeXML(model.locationVo.diqu_arr,xml);
+			saveNodeXML(model.locationVo.dalou_arr,xml);
+			saveNodeXML(model.locationVo.louceng_arr,xml);
+			saveNodeXML(model.locationVo.fangjian_arr,xml);
+			
+			
+			
+			var http:HTTPService=new HTTPService();
+			http.resultFormat="xml";
+			http.useProxy=false;
+			http.method="POST";
+			http.url=MainEvent(event).url;
+			//if(http.url!=""){
+				http.send(xml);
+			//}
+		}
+		
+		private function saveNodeXML(arr:ArrayCollection,xml:XML):void{
+			for(var i:Number=0;i<arr.length;i++){
+				var node:LocationNode=LocationNode(arr.getItemAt(i));
+				
+				var xmlnode:XML=<resource id="" name="" type="" img="" parentId="" className="" x="" y=""/>;
+				xmlnode.@className = getQualifiedClassName(node).replace("::", ".");
+				xmlnode.@id=node.uid;
+				xmlnode.@y=node.y;
+				xmlnode.@x=node.x;
+				xmlnode.@img=node.nodeImgUrl;
+				xmlnode.@name=node.displayName;
+				xmlnode.@type=node.locationNodeType;
+				xmlnode.@parentId=node.parentId;
+//				if(array[node.uid]!=null){
+//					xmlnode.@parentId=array[node.uid]["parentId"];
+//				}
+				
+				
+				xml.appendChild(xmlnode);
+			}
+		}
+		
+		public function visit(component:IComponent):*
+		{
+//			if(component === this.mainEdit.main.content)
+//			{
+//				
+//				for(var i:int=0; i<this.mainEdit.main.content.numElements; i++)
+//				{
+//					var c:IComponent = this.mainEdit.main.content.getElementAt(i) as IComponent;
+//					visit(c);
+//				}
+//			}else if(component is PolyLine)
+//			{
+//				if(PolyLine(component).source!=null){
+//					var node1:LocationNode=LocationNode(PolyLine(component).source);
+//					var node2:LocationNode=LocationNode(PolyLine(component).target);
+//					trace(PolyLine(component).source.uid);
+//					var obj:Object;//location_domain
+//					if(node1.locationNodeType=="location_domain"){
+//						if(node2.locationNodeType=="location_area"){
+//							obj=new Object();
+//							obj["parentId"]=node1.uid;
+//							array[""+node2.uid]=obj;
+//							
+//						}
+//					}else if(node1.locationNodeType=="location_area"){
+//						if(node2.locationNodeType=="location_builder"){
+//							obj=new Object();
+//							obj["parentId"]=node1.uid;
+//							array[""+node2.uid]=obj;
+//							
+//						}else if(node2.locationNodeType=="location_domain"){
+//							obj=new Object();
+//							obj["parentId"]=node2.uid;
+//							array[""+node1.uid]=obj;
+//						}
+//					}else if(node1.locationNodeType=="location_builder"){
+//						if(node2.locationNodeType=="location_area"){
+//							obj=new Object();
+//							obj["parentId"]=node2.uid;
+//							array[""+node1.uid]=obj;
+//							
+//						}else if(node2.locationNodeType=="location_floor"){
+//							obj=new Object();
+//							obj["parentId"]=node1.uid;
+//							array[""+node2.uid]=obj;				
+//						}
+//					}else if(node1.locationNodeType=="location_floor"){
+//						if(node2.locationNodeType=="location_builder"){
+//							obj=new Object();
+//							obj["parentId"]=node2.uid;
+//							array[""+node1.uid]=obj;
+//							
+//						}
+//					}
+//					
+//				}
+//			}
+
+		}
+	}
+}

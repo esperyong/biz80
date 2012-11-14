@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+TODO:s:Group
+@author chendg
+@version 1.0
+@created 2010-9-25  下午03:40:36
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:canvas="com.mocha.peony.core.canvas.*" 
+		 width="100%" height="100%"
+		 creationComplete="creationCompleteHandler(event)"
+		 initialize="initializeHandler(event)"
+		 >
+	<fx:Declarations>
+		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
+	</fx:Declarations>
+	
+	<fx:Script>
+		<![CDATA[
+			import com.mocha.biz.model.GraphLocator;
+			import com.mocha.biz.ui.component.node.CommonNode;
+			import com.mocha.biz.ui.data.GraphCanvasProxy;
+			import com.mocha.biz.ui.stencil.CommonNodeStencil;
+			import com.mocha.biz.util.BizContant;
+			import com.mocha.peony.core.stencil.NullStencil;
+			import com.mocha.peony.core.stencil.PolyLineStencil;
+			import com.mocha.peony.core.stencil.SelectorStencil;
+			
+			import mx.controls.Image;
+			import mx.events.FlexEvent;
+			public var editorControl:MainEditorControl;
+			
+			private var backImg:Image;
+			
+			protected function creationCompleteHandler(event:FlexEvent):void
+			{
+				this.backImg.width = this.main.width;
+				this.backImg.height = this.main.height;
+				
+				this.main.backgroundPane.addElement(this.backImg);
+				
+				GraphLocator.getInstance().graphProxy = new GraphCanvasProxy(this.main);
+				editorControl = new MainEditorControl(this);
+				
+				this.main.registerStencil(BizContant.DEFAULT_STENCIL_NAME,new ClassFactory(SelectorStencil));
+				this.main.registerStencil("null",new ClassFactory(NullStencil));
+				this.main.registerStencil(CommonNodeStencil.COMPONENT_TYPE,new ClassFactory(CommonNodeStencil));
+				this.main.registerStencil("polyline", new ClassFactory(PolyLineStencil));
+				
+//				this.main.componentFactoryRegistry.register(CommonNodeStencil.COMPONENT_TYPE,new ClassFactory(CommonNode));
+				
+				this.main.useStencil(BizContant.DEFAULT_STENCIL_NAME);
+				
+			}
+			
+
+
+			protected function initializeHandler(event:FlexEvent):void
+			{
+				this.main.showGrid = false;
+				backImg = new Image();
+				backImg.source = "./assets/images/all-bg.jpg";
+				backImg.maintainAspectRatio = false;
+			}
+
+		]]>
+	</fx:Script>
+	<canvas:GraphCanvas id="main" width="100%" height="100%"/>
+</s:Group>

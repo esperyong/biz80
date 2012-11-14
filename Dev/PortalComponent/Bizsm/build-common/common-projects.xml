@@ -1,0 +1,25 @@
+<project name="bsm-device-management" default="publish-all" xmlns:ivy="antlib:org.apache.ivy.ant" basedir=".">
+	<property file="buildcommon/local.properties"/>
+	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant"/>
+	<property name="ivy.jar.dir" value="${user.home}/.ivy2/jars"/>
+	<property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar"/>
+	<property name="build.dir" value="build"/>
+	<property name="src.dir" value="src"/>
+	<target name="buildlist" description="build the buiding order list">
+		<ivy:buildlist reference="build-path">
+			<fileset dir="." >
+				 <include name="**/build.xml" />
+				 <exclude name="build.xml" />
+			</fileset>
+		</ivy:buildlist>
+	</target>
+	<target name="publish-all" depends="clean-all,buildlist" description="compile, jar and publish all projects in the right order">
+		<subant target="publish" buildpathref="build-path"/>
+	</target>
+	<target name="clean" depends="buildlist" description="clean all projects">
+		<subant target="clean" buildpathref="build-path"/>
+	</target>
+	<target name="clean-all" depends="clean" description="clean: delete ivy cache, and all projects">
+		<ivy:cleancache/>
+	</target>
+</project>

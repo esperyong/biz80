@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ include file="/WEB-INF/common/meta.jsp" %>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../css/public.css" rel="stylesheet" type="text/css" />
+<link href="../css/master.css" rel="stylesheet" type="text/css" />
+<link href="../css/tongjifenxi.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body  class="pop-window">
+<div class="pop">
+	<div class="pop-top-l">
+		<div class="pop-top-r">
+			<div class="pop-top-m">
+				<a class="win-ico win-close"></a>
+				<span class="pop-top-title">机房定义导航</span>
+			</div>
+		</div>
+  </div>
+	<div class="pop-m">
+		<div class="pop-content">
+         <!--内容内容内容内容内容内容内容内容内容内容内容--> 
+           <div class="room-wizard"> 
+             <div class="leftmenu">
+               <ul>
+                 <li><a class="menu01-on"></a></li>
+                 <li class="fenge"></li>
+                 <li><a class="menu02"></a></li>
+                 <li class="fenge"></li>
+                 <li><a class="menu03"></a></li>
+                 <li class="fenge"></li>
+                 <li><a class="menu04"></a></li>
+                 <li class="fenge"></li>
+                  <li><a class="menu05"></a></li>
+                 <li class="fenge"></li>
+                  <li><a class="menu06"></a></li>
+                  
+               </ul>
+             </div>
+             <div class="content" style="width:300px;height:400px">
+             	<input type="text" value="${ctx}/roomDefine/NavigationHelpInfoVisit?stepPage=0"/>
+				<iframe style="width:300px;height:400px" id="contentFrame" src="${ctx}/roomDefine/NavigationHelpInfoVisit?stepPage=0"></iframe>
+			</div>
+
+ 
+	
+         <!--内容内容内容内容内容内容内容内容内容内容内容-->  
+	</div>
+	<div class="pop-bottom-l">
+		<div class="pop-bottom-r">
+			<div class="pop-bottom-m">
+			   <span class="win-button"><span class="win-button-border" onClick="okClick()"><a>确定</a></span></span>
+               
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+	function okClick(){
+		window.close();
+	}
+</script>

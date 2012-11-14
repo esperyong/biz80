@@ -1,0 +1,23 @@
+<peony version="1.0">
+  <graph>
+    <node id="B4483756-F6FD-DFF7-87D9-9C0365181D2A" className="cn.com.mochasoft.bsm.location.component.LocationNode" x="434" y="113" width="80" height="74">
+      <property key="parentId"/>
+      <property key="nodeImgUrl">../flash/location/assets/toolbox/diqu.png</property>
+      <property key="nodeType"></property>
+      <property key="nodeName"></property>
+    </node>
+    <node id="54AA67A3-050C-3B52-6071-9C036A483CB1" className="cn.com.mochasoft.bsm.location.component.LocationNode" x="205" y="99" width="80" height="74">
+      <property key="parentId"/>
+      <property key="nodeImgUrl">../flash/location/assets/toolbox/dalou.png</property>
+      <property key="nodeType"></property>
+      <property key="nodeName"></property>
+    </node>
+    <node id="F4B6DBB6-994F-1991-82CF-9C03738F0412" className="cn.com.mochasoft.bsm.location.component.LocationNode" x="294" y="298" width="80" height="74">
+      <property key="parentId">54AA67A3-050C-3B52-6071-9C036A483CB1</property>
+      <property key="nodeImgUrl">../flash/location/assets/toolbox/louceng.png</property>
+      <property key="nodeType"></property>
+      <property key="nodeName"></property>
+    </node>
+  </graph>
+  <dataBindings/>
+</peony>
